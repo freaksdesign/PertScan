@@ -1,11 +1,10 @@
 import socket
 import threading
 from queue import Queue
-import tkinter as tk
+#import tkinter as tk
 #import tkmessagebox as tmb
 import pyttsx3
 import wikipedia
-
 
 #Put in your own IP adress here for target. Gets accurate info if using own IP
 target = "127.0.0.1"
@@ -13,22 +12,11 @@ target = "127.0.0.1"
 queue = Queue()
 open_ports = []
 
-#Setting up the display
-#app is a placeholder name will redo name once come up with better name
-#TODO: Create better name than 'app'
-##app = tk.Tk()
-##app.title("Port Scanner")
-##app.geometry('300x90')
-##app.resizeable(False, False)
-#Frame and field options
-##frame = ttk.Frame(app)
-##options = {'padx':5, 'pady':5}
-
 #Speach AI portion for talking ai
 converter = pyttsx3.init()
 speaker_rate = 142 #Set rate of talking speed (0 = slower - 200 = faster)
 converter.setProperty('rate', speaker_rate)
-print("")
+print("Hello Welcome to the BorgScan, working title, Please select what you would like to do.")
 converter.setProperty('volume', 0.7) #Set volume from 0 to 1, can also be over 1
 #Set voice of speech, can be gender, adult, accent, etc
 voice_id = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0"
@@ -58,8 +46,10 @@ def Worker():
             print("Port {} is open!".format(port))
             open_ports.append(port)
 
+#Speach_AI should speak at this point
 converter.say("Hello welcome to Port Scarn, working title, choose what you would like to do.")
 
+#Port list listing out the open ports 
 port_list = range(1, 1024)
 fill_QUEUE(port_list)
 #Creates the thread list so it can write which ports are open
@@ -80,7 +70,3 @@ for thread in thread_list:
 #Printing out result of open ports
 converter.say("The open ports are: " , open_ports)
 print("Open ports are:\n " , open_ports)
-
-
-def PortScanButton():
-    tmb.showinfo("Port Scan", "")
