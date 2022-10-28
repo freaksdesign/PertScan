@@ -1,6 +1,9 @@
 __all__ = ['Page', 'Page1', 'Page2', 'MainView']
 
 # NOTE:  Add an exception for checking VALID IP INPUT  (before actually running the IP)
+# NOTE:  Disable the ability to press scan while a scan is already ongoing
+# NOTE:  Add a refresh icon/animation while scan is ongoing?
+# NOTE:  Add details frame below the table & show info for when a port is selected (instead of the test popup window)
 
 # Import Libs
 import os
@@ -71,17 +74,17 @@ class Page1(Page):
         result_columns = ('ip', 'port_num', 'port_status', 'port_name', 'description')
         self.scan_results = ttk.Treeview(self, columns=result_columns, show='headings')
 
-        # Set table heading names & column sizing
-        self.scan_results.heading('ip', text='IP Address')
-        self.scan_results.column('ip', minwidth=0, width=100)
-        self.scan_results.heading('port_num', text='Port')
-        self.scan_results.column('port_num', minwidth=0, width=50)
-        self.scan_results.heading('port_status', text='Status')
-        self.scan_results.column('port_status', minwidth=0, width=80)
-        self.scan_results.heading('port_name', text='Port Name')
-        self.scan_results.column('port_name', minwidth=0, width=120)
-        self.scan_results.heading('description', text='Description')
-        self.scan_results.column('description', minwidth=0, width=300)
+        # Set column heading data (id, text, width)
+        columns = (('ip', 'IP Address', 100),
+                   ('port_num', 'Port', 50),
+                   ('port_status', 'Status', 80),
+                   ('port_name', 'Port Name', 120),
+                   ('description', 'Description', 300))
+
+        # Set table heading names, column sizing, & data filtering command
+        for col in columns:
+            self.scan_results.heading(col[0], text=col[1], command=lambda _col=col[0]: self.filter_data(_col, True))
+            self.scan_results.column(col[0], minwidth=0, width=col[2])
 
         # Set the action binding for when a table entry is clicked/selected
         self.scan_results.bind("<<TreeviewSelect>>", self.item_selected)
@@ -89,13 +92,29 @@ class Page1(Page):
         # Place/position the results table
         self.scan_results.grid(row=1, column=0, padx=(5, 0), pady=5, columnspan=60, sticky="nsew")
 
-        # add scrollbar
+        # Add a scrollbar to the results table
         scrollbar = ttk.Scrollbar(self, orient=tk.VERTICAL, command=self.scan_results.yview)
         self.scan_results.configure(yscrollcommand=scrollbar.set)
         scrollbar.grid(row=1, column=60, sticky="ns")
 
         # REMOVE FOCUS FROM WIDGET BY CLICKING OFF
         self.bind_all("<1>", lambda event: event.widget.focus_set())
+
+    # Method for filtering result table data (runs when column header is clicked)
+    def filter_data(self, column, reverse):
+        l = [(self.scan_results.set(k, column), k) for k in self.scan_results.get_children('')]
+
+        try:  # Numeric value
+            l.sort(reverse=reverse, key=lambda tup: float(tup[0]))
+        except ValueError:  # String value
+            l.sort(reverse=reverse)
+
+        # Rearrange items in sorted positions
+        for index, (val, k) in enumerate(l):
+            self.scan_results.move(k, '', index)
+
+        # Reverse the sort for the next run
+        self.scan_results.heading(column, command=lambda _col=column: self.filter_data(_col, not reverse))
 
     # Method for deleting port 'data' variable
     def delete_data(self):
