@@ -10,6 +10,8 @@ from tkinter import font
 from tkinter.messagebox import showinfo
 
 import socket
+import queue
+import threading
 from concurrent.futures import ThreadPoolExecutor
 
 
@@ -50,10 +52,10 @@ class Page1(Page):
         self.scan_button = tk.Button(self, text="Scan", font=self.medium_font)
         self.scan_button.grid(row=0, column=0, padx=5, pady=5, sticky="w")
 
-        # IP Address text input
+        # IP Address label
         self.ip_label = tk.Label(self, text="IP Address:", font=self.small_font)
         self.ip_label.grid(row=0, column=1, padx=0, pady=5, sticky="w")
-
+        # IP Address text input
         self.ip_entry_text = tk.StringVar()
         self.ip_entry_text.set("localhost")
         self.ip_entry = tk.Entry(self, textvariable=self.ip_entry_text, font=self.small_font)
@@ -101,8 +103,6 @@ class Page1(Page):
 
     # Method for adding a port entry to the 'data' variable
     def add_data(self, ip, port, is_open, name, description):
-        # status = 'Open' if is_open else 'Closed'
-        # self.data.append((ip, port, status, name, description))
         self.data.append((ip, port, is_open, name, description))
 
     # Method to clear the results table
@@ -153,15 +153,18 @@ class Page2(Page):
              PAGE CONFIGURATION
             ==================== """
         # Back button
-        self.back_button = tk.Button(self, text="Go Back", font=self.medium_font)
+        self.back_button = tk.Button(self, text="Back", font=self.small_font)
 
+        # LabelFrame
         self.frame = tk.LabelFrame(self, text="Thank you for using PortScanner!", font=self.title_font)
 
+        # Content labels
         self.label1 = tk.Label(self.frame, text="About Us", font=self.medium_font)
         self.label2 = tk.Label(self.frame, text="We are...", font=self.small_font)
 
         # Place / position everything
         self.back_button.grid(row=0, column=0, padx=5, pady=5, sticky="w")
+
         self.frame.grid(row=1, column=0, padx=5, pady=5, sticky="ew")
 
         self.label1.grid(row=0, column=0, padx=2, pady=4)
@@ -173,13 +176,17 @@ class MainView(tk.Frame):
     def __init__(self, *args, **kwargs):
         tk.Frame.__init__(self, *args, **kwargs)
 
+        self.queue = None  # Initialize queue
+
         """ ========================
              INITIALIZE VARIABLE(S)
             ======================== """
         self.machine_ip = socket.gethostbyname(socket.gethostname())
 
+        # Initialize host target
         self.target = self.machine_ip
 
+        # Initialize range of ports to scan
         self.port_list = range(1024)
 
         # INITIALIZE the Menubar
@@ -256,51 +263,102 @@ class MainView(tk.Frame):
 
         return menubar
 
+    # Method for lifting Page1 to the top of the stack
     def goto_main_page(self):
         self.p1.show()
 
+    # Method for lifting Page2 to the top of the stack
     def goto_welcome_page(self):
         self.p2.show()
 
+    # Method for starting the Port Scanning process
     def start_scan(self):
         # Update the target host with IP address FROM THE TEXTBOX
         self.target = self.p1.ip_entry_text.get()
 
+        # Delete all data (to be replaced by updated scan data results)
         self.p1.delete_data()
+
+        # Initialize queue
+        self.queue = queue.Queue()
+
+        # Start the PortScanner thread  (send the parameters: target ip & range of ports)
+        ThreadedPortScanner(self.queue, args=(self.target, self.port_list)).start()
+
+        # Check the progress (run self.process_queue() method) after 100ms passes
+        self.master.after(100, self.process_queue)
+
+    # Method for checking the progress of the PortScanning thread (for checking completion)
+    def process_queue(self):
+        try:  # If the thread process has completed (when 'data' has been added to the queue)
+            msg = self.queue.get_nowait()  # Retrieving data from PortScanner thread queue
+            self.p1.data = msg  # Updating the 'data' variable
+            self.p1.update_table()  # Updating the result table
+        except queue.Empty:  # Otherwise...
+            # Re-check (run the method again) after another 100ms
+            self.master.after(100, self.process_queue)
+
+
+# PortScanner thread (runs separately from the main tkinter GUI thread)
+class ThreadedPortScanner(threading.Thread):
+    def __init__(self, q, args=(), kwargs=None):
+        threading.Thread.__init__(self, args=(), kwargs=None)
+
+        self.queue = q  # Set the queue
+
+        # Retrieve the given parameters (convert the Iterable to a list)
+        params = []
+        for x in args:
+            params.append(x)
+
+        self.target = params[0]  # Set the 1st parameter (target ip) as a variable
+        self.port_list = params[1]  # Set the 2nd parameter (port range) as a variable
+
+        # Initialize the 'data' list
+        self.data = []
+
+    # What happens during the thread process
+    def run(self):
         print("\nSCANNING...")
+
+        # Start the port scan
         self.scan()
-        self.p1.update_table()
+
+        # (after the port scan is done)
+        # Send the 'data' to the queue (which is caught in the Tkinter GUI thread, and retrieved there)
+        self.queue.put(self.data)
 
     # Method to check if a port is open
     def is_port_open(self, target, port):
+        # Define socket with exceptions
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
             sock.settimeout(3)  # Set timeout to 3 seconds max
 
-            try:
+            try:  # Is the socket able to be connected?  (port open)
                 sock.connect((target, port))
-                return True  # if port is open
-            except:
-                return False  # if port is closed
+                return True  # port is open
+            except:  # If an exception is caught  (port closed)
+                return False  # port is not open
 
     def scan(self):
-        # Create Thread Pool
+        # Create Thread Pool (as 'executor')
         with ThreadPoolExecutor(len(self.port_list)) as executor:
+            # Call map() to run and execute the is_port_open() method over all ports in the 'port_list'
             result = executor.map(self.is_port_open, [self.target]*len(self.port_list), self.port_list)
 
+            # Iterate the results + port numbers
             for port, is_open in zip(self.port_list, result):
-                # ADD PORT ENTRY TO 'data' variable
-                self.p1.add_data(
-                    self.target,
-                    port,
-                    is_open,
-                    self.get_port_name(port),
-                    self.get_port_description(port)
-                )
+                # ADD PORT ENTRY to 'data' variable
+                self.data.append((
+                    self.target, port, is_open, self.get_port_name(port), self.get_port_description(port)
+                ))
+
+                # If the port is open, output to console
                 if is_open:
                     print(f'Port {port} is open!')
 
     def get_port_name(self, port):
-        return f'[PORT {port} NAME]'
+        return f'Port {port} NAME'  # placeholder
 
     def get_port_description(self, port):
-        return f'[PORT {port} DESCRIPTION]'
+        return f'Port {port} DESCRIPTION'  # placeholder
