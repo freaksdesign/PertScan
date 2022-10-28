@@ -1,5 +1,8 @@
 __all__ = ['Page', 'Page1', 'Page2', 'MainView']
 
+# NOTE:  Add a check for 'localhost' Entry to convert to the actual IP for the table data!
+# NOTE:  Add an exception for checking VALID IP INPUT  (before actually running the IP)
+
 # Import Libs
 import os
 import tkinter as tk
@@ -40,13 +43,27 @@ class Page1(Page):
         """ ========================
              INITIALIZE VARIABLE(S)
             ======================== """
-        # ...
+        self.result_data = []
 
         """ ====================
              PAGE CONFIGURATION
             ==================== """
         self.scan_button = tk.Button(self, text="Scan", font=self.medium_font)
         self.scan_button.grid(row=0, column=0, padx=5, pady=5, sticky="w")
+
+        self.ip_label = tk.Label(self, text="IP Address:", font=self.small_font)
+        self.ip_label.grid(row=0, column=1, padx=0, pady=5, sticky="w")
+
+        self.ip_entry_text = tk.StringVar()
+        self.ip_entry_text.set("localhost")
+        self.ip_entry = tk.Entry(self, textvariable=self.ip_entry_text, font=self.small_font)
+        self.ip_entry.grid(row=0, column=2, padx=0, pady=5, sticky="w")
+
+        self.ip_default_checkbox_var = tk.IntVar()
+        self.ip_default_checkbox = tk.Checkbutton(self, text="This Machine?", variable=self.ip_default_checkbox_var,
+                                                  onvalue=1, offvalue=0, height=2, width=10,
+                                                  command=self.toggle_default_ip)
+        self.ip_default_checkbox.grid(row=0, column=3, padx=5, pady=5, sticky="w")
 
         # Result table
         result_columns = ('ip', 'port_num', 'port_status', 'port_name', 'description')
@@ -63,7 +80,8 @@ class Page1(Page):
         self.scan_results.heading('description', text='Description')
         self.scan_results.column('description', minwidth=0, width=300)
 
-        self.data = []
+        # NOTE: CHANGED VARIABLE NAME ABOVE
+        # self.data = self.result_data
 
         # self.data.append(('192.168.0.1', '135', 'Open', 'epmap', 'dce endpoint resolution, location service, etc.'))
         # self.data.append(('192.168.0.1', '137', 'Closed', 'netbios-ns', 'netbios name service'))
@@ -71,18 +89,22 @@ class Page1(Page):
         # self.data.append(('192.168.0.1', '139', 'Open', 'netbios-ssn', 'netbios session service'))
         # self.data.append(('192.168.0.1', '443', 'Closed', 'https', 'secure http (ssl), http protocol over tls/ssl'))
         # self.data.append(('192.168.0.1', '445', 'Open', 'microsoft-ds', 'microsoft-ds'))
-        #
-        # for x in self.data:
-        #     self.scan_results.insert('', tk.END, values=x)
+
+        # NOTE: Not necessary anymore?? Since this line of code is run in scan() method in MainView class?
+        for x in self.result_data:
+            self.scan_results.insert('', tk.END, values=x)
 
         self.scan_results.bind('<<TreeviewSelect>>', self.item_selected)
 
-        self.scan_results.grid(row=1, column=0, sticky='nsew')
+        self.scan_results.grid(row=1, column=0, columnspan=60, sticky='nsew')
 
         # add scrollbar
         scrollbar = ttk.Scrollbar(self, orient=tk.VERTICAL, command=self.scan_results.yview)
         self.scan_results.configure(yscrollcommand=scrollbar.set)
-        scrollbar.grid(row=1, column=1, sticky='ns')
+        scrollbar.grid(row=1, column=60, sticky='ns')
+
+        # REMOVES FOCUS FROM ENTRY BOX WHEN CLICK OFF
+        self.bind_all("<1>", lambda event: event.widget.focus_set())
 
     def item_selected(self, event):
         for selected_item in self.scan_results.selection():
@@ -90,6 +112,13 @@ class Page1(Page):
             record = item['values']
             # show a message
             showinfo(title='Information', message=''.join(str(record)))
+
+    def toggle_default_ip(self):
+        if self.ip_default_checkbox_var.get() == 1:
+            self.ip_entry.config(state="disabled")
+            self.ip_entry_text.set("localhost")
+        elif self.ip_default_checkbox_var.get() == 0:
+            self.ip_entry.config(state="normal")
 
 
 # Page 2
@@ -136,8 +165,9 @@ class MainView(tk.Frame):
         self.file_menu = tk.Menu(self.menubar, tearoff=0)
 
         self.file_menu.add_command(label='Scan')
-        self.file_menu.add_command(label='Open')
+        self.file_menu.add_separator()
         self.file_menu.add_command(label='Save')
+        self.file_menu.add_command(label='Save As...')
         self.file_menu.add_separator()
         self.file_menu.add_command(label='Exit', command=self.master.destroy)
 
@@ -205,6 +235,27 @@ class MainView(tk.Frame):
             thread.join()
 
         print("\nOpen ports are:\n", self.open_ports)
+
+        # NOTE:  Implement all ports kept & added to the table (Open AND CLOSED) - not just Open ports
+
+        # GUI DISPLAY
+        for port in self.open_ports:
+            self.p1.result_data.append((
+                self.p1.ip_entry_text.get(),
+                port,
+                'Open',  # NOTE:  save closed ports, too - and differentiate Open vs. Closed
+                '[Name]',  # NOTE:  Create a list of which ports do what
+                '[Details]'  # and connect the corresponding port data
+            ))
+
+            # data.append(('192.168.0.1', '135', 'Open', 'epmap', 'dce endpoint resolution, location service, etc.'))
+
+        for x in self.p1.result_data:
+            self.p1.scan_results.insert('', tk.END, values=x)
+
+    # NOTE: Make a method to clear all saved ports in variables & etc. BEFORE SCANNING (for a FRESH scan!)
+    def clear_scan(self):
+        pass
 
     def PortScanner(self, port):
         try:
