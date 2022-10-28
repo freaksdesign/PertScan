@@ -1,6 +1,5 @@
 __all__ = ['Page', 'Page1', 'Page2', 'MainView']
 
-# NOTE:  Add a check for 'localhost' Entry to convert to the actual IP for the table data!
 # NOTE:  Add an exception for checking VALID IP INPUT  (before actually running the IP)
 
 # Import Libs
@@ -11,8 +10,7 @@ from tkinter import font
 from tkinter.messagebox import showinfo
 
 import socket
-import threading
-from queue import Queue
+from concurrent.futures import ThreadPoolExecutor
 
 
 # Default Page (structure that each Page inherits)
@@ -43,14 +41,16 @@ class Page1(Page):
         """ ========================
              INITIALIZE VARIABLE(S)
             ======================== """
-        self.result_data = []
+        self.data = []  # For storing scanned port data
 
         """ ====================
              PAGE CONFIGURATION
             ==================== """
+        # Scan button
         self.scan_button = tk.Button(self, text="Scan", font=self.medium_font)
         self.scan_button.grid(row=0, column=0, padx=5, pady=5, sticky="w")
 
+        # IP Address text input
         self.ip_label = tk.Label(self, text="IP Address:", font=self.small_font)
         self.ip_label.grid(row=0, column=1, padx=0, pady=5, sticky="w")
 
@@ -58,7 +58,7 @@ class Page1(Page):
         self.ip_entry_text.set("localhost")
         self.ip_entry = tk.Entry(self, textvariable=self.ip_entry_text, font=self.small_font)
         self.ip_entry.grid(row=0, column=2, padx=0, pady=5, sticky="w")
-
+        # 'This Machine?' Checkbox
         self.ip_default_checkbox_var = tk.IntVar()
         self.ip_default_checkbox = tk.Checkbutton(self, text="This Machine?", variable=self.ip_default_checkbox_var,
                                                   onvalue=1, offvalue=0, height=2, width=10,
@@ -69,6 +69,7 @@ class Page1(Page):
         result_columns = ('ip', 'port_num', 'port_status', 'port_name', 'description')
         self.scan_results = ttk.Treeview(self, columns=result_columns, show='headings')
 
+        # Set table heading names & column sizing
         self.scan_results.heading('ip', text='IP Address')
         self.scan_results.column('ip', minwidth=0, width=100)
         self.scan_results.heading('port_num', text='Port')
@@ -80,31 +81,55 @@ class Page1(Page):
         self.scan_results.heading('description', text='Description')
         self.scan_results.column('description', minwidth=0, width=300)
 
-        # NOTE: CHANGED VARIABLE NAME ABOVE
-        # self.data = self.result_data
+        # Set the action binding for when a table entry is clicked/selected
+        self.scan_results.bind("<<TreeviewSelect>>", self.item_selected)
 
-        # self.data.append(('192.168.0.1', '135', 'Open', 'epmap', 'dce endpoint resolution, location service, etc.'))
-        # self.data.append(('192.168.0.1', '137', 'Closed', 'netbios-ns', 'netbios name service'))
-        # self.data.append(('192.168.0.1', '138', 'Closed', 'netbios-dgm', 'netbios datagram service'))
-        # self.data.append(('192.168.0.1', '139', 'Open', 'netbios-ssn', 'netbios session service'))
-        # self.data.append(('192.168.0.1', '443', 'Closed', 'https', 'secure http (ssl), http protocol over tls/ssl'))
-        # self.data.append(('192.168.0.1', '445', 'Open', 'microsoft-ds', 'microsoft-ds'))
-
-        # NOTE: Not necessary anymore?? Since this line of code is run in scan() method in MainView class?
-        for x in self.result_data:
-            self.scan_results.insert('', tk.END, values=x)
-
-        self.scan_results.bind('<<TreeviewSelect>>', self.item_selected)
-
-        self.scan_results.grid(row=1, column=0, columnspan=60, sticky='nsew')
+        # Place/position the results table
+        self.scan_results.grid(row=1, column=0, padx=(5, 0), pady=5, columnspan=60, sticky="nsew")
 
         # add scrollbar
         scrollbar = ttk.Scrollbar(self, orient=tk.VERTICAL, command=self.scan_results.yview)
         self.scan_results.configure(yscrollcommand=scrollbar.set)
-        scrollbar.grid(row=1, column=60, sticky='ns')
+        scrollbar.grid(row=1, column=60, sticky="ns")
 
-        # REMOVES FOCUS FROM ENTRY BOX WHEN CLICK OFF
+        # REMOVE FOCUS FROM WIDGET BY CLICKING OFF
         self.bind_all("<1>", lambda event: event.widget.focus_set())
+
+    # Method for deleting port 'data' variable
+    def delete_data(self):
+        self.data = []
+
+    # Method for adding a port entry to the 'data' variable
+    def add_data(self, ip, port, is_open, name, description):
+        # status = 'Open' if is_open else 'Closed'
+        # self.data.append((ip, port, status, name, description))
+        self.data.append((ip, port, is_open, name, description))
+
+    # Method to clear the results table
+    def clear_table(self):
+        for item in self.scan_results.get_children():
+            self.scan_results.delete(item)
+
+    # Method to update the table with the stored data ('data' var)
+    def update_table(self):
+        # Clear all current table data
+        self.clear_table()
+        # Add all new data
+        for item in self.data:
+            temp = [item[0],
+                    item[1],
+                    # Set status to 'Open'/'Closed' if is_open == True/False
+                    'Open' if item[2] else 'Closed',
+                    item[3],
+                    item[4]]
+            self.scan_results.insert('', tk.END, values=temp)
+
+    def toggle_default_ip(self):
+        if self.ip_default_checkbox_var.get() == 1:
+            self.ip_entry.config(state='disabled')
+            self.ip_entry_text.set("localhost")
+        elif self.ip_default_checkbox_var.get() == 0:
+            self.ip_entry.config(state='normal')
 
     def item_selected(self, event):
         for selected_item in self.scan_results.selection():
@@ -113,15 +138,8 @@ class Page1(Page):
             # show a message
             showinfo(title='Information', message=''.join(str(record)))
 
-    def toggle_default_ip(self):
-        if self.ip_default_checkbox_var.get() == 1:
-            self.ip_entry.config(state="disabled")
-            self.ip_entry_text.set("localhost")
-        elif self.ip_default_checkbox_var.get() == 0:
-            self.ip_entry.config(state="normal")
 
-
-# Page 2
+# Page 2  -  Welcome
 class Page2(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
@@ -134,7 +152,20 @@ class Page2(Page):
         """ ====================
              PAGE CONFIGURATION
             ==================== """
-        # ...
+        # Back button
+        self.back_button = tk.Button(self, text="Go Back", font=self.medium_font)
+
+        self.frame = tk.LabelFrame(self, text="Thank you for using PortScanner!", font=self.title_font)
+
+        self.label1 = tk.Label(self.frame, text="About Us", font=self.medium_font)
+        self.label2 = tk.Label(self.frame, text="We are...", font=self.small_font)
+
+        # Place / position everything
+        self.back_button.grid(row=0, column=0, padx=5, pady=5, sticky="w")
+        self.frame.grid(row=1, column=0, padx=5, pady=5, sticky="ew")
+
+        self.label1.grid(row=0, column=0, padx=2, pady=4)
+        self.label2.grid(row=1, column=0, padx=2, pady=4)
 
 
 # Main Controller class - primary window container - contains, controls & views Page(s)
@@ -145,60 +176,15 @@ class MainView(tk.Frame):
         """ ========================
              INITIALIZE VARIABLE(S)
             ======================== """
-        machine_ip = socket.gethostbyname(socket.gethostname())
-        print(machine_ip)
+        self.machine_ip = socket.gethostbyname(socket.gethostname())
 
-        self.target = machine_ip
-        self.queue = Queue()
+        self.target = self.machine_ip
 
-        self.open_ports = []
+        self.port_list = range(1024)
 
-        self.port_list = range(1, 1024)
-
-        self.thread_list = []
-
-        # Menu Bar  (configured in 'app.py')
-        # NOTE: This is just the initialization of the Menu - it is ADDED to the container in 'app.py'
-        self.menubar = tk.Menu(self)
-
-        # FILE
-        self.file_menu = tk.Menu(self.menubar, tearoff=0)
-
-        self.file_menu.add_command(label='Scan')
-        self.file_menu.add_separator()
-        self.file_menu.add_command(label='Save')
-        self.file_menu.add_command(label='Save As...')
-        self.file_menu.add_separator()
-        self.file_menu.add_command(label='Exit', command=self.master.destroy)
-
-        # VIEW
-        self.view_menu = tk.Menu(self.menubar, tearoff=0)
-
-        # SETTINGS
-        self.settings_menu = tk.Menu(self.menubar, tearoff=0)
-
-        # Settings -> Preferences
-        self.preferences_menu = tk.Menu(self.settings_menu, tearoff=0)
-        self.preferences_menu.add_command(label='Keyboard Shortcuts')
-        # Settings -> Preferences -> Font Preferences
-        font_preferences = tk.Menu(self.preferences_menu, tearoff=0)
-        font_preferences.add_command(label='Font Size')
-        font_preferences.add_command(label='Font Style')
-
-        self.preferences_menu.add_cascade(label="Font Preferences", menu=font_preferences)
-        self.settings_menu.add_cascade(label="Preferences", menu=self.preferences_menu)
-
-        # HELP
-        self.help_menu = tk.Menu(self.menubar, tearoff=0)
-
-        self.help_menu.add_command(label='Welcome')
-        self.help_menu.add_command(label='About')
-
-        # ADD ALL DROPDOWN BUTTONS TO THE MENUBAR
-        self.menubar.add_cascade(label="File", menu=self.file_menu)
-        self.menubar.add_cascade(label="View", menu=self.view_menu)
-        self.menubar.add_cascade(label="Settings", menu=self.settings_menu)
-        self.menubar.add_cascade(label="Help", menu=self.help_menu)
+        # INITIALIZE the Menubar
+        # NOTE: This is ADDED TO THE CONTAINER in 'app.py'
+        self.menubar = self.initialize_menubar()
 
         """ ======================
              WINDOW CONFIGURATION
@@ -216,65 +202,105 @@ class MainView(tk.Frame):
         self.p2.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
 
         # BUTTON CONFIGURATION
-        self.p1.scan_button.config(command=self.scan)
+        self.p1.scan_button.config(command=self.start_scan)
+        self.p2.back_button.config(command=self.goto_main_page)
 
         # Display the 1st page!
         self.p1.show()
 
+    # Method to initialize the menubar  -  returns instance of Menubar
+    def initialize_menubar(self):
+        menubar = tk.Menu(self)
+
+        # FILE
+        file_menu = tk.Menu(menubar, tearoff=0)
+
+        file_menu.add_command(label='Scan', command=self.start_scan)
+        file_menu.add_separator()
+        file_menu.add_command(label='Save')
+        file_menu.add_command(label='Save As...')
+        file_menu.add_separator()
+        file_menu.add_command(label='Exit', command=self.master.destroy)
+
+        # VIEW
+        view_menu = tk.Menu(menubar, tearoff=0)
+
+        # SETTINGS
+        settings_menu = tk.Menu(menubar, tearoff=0)
+
+        #
+        # Settings  ->  Preferences
+        preferences_menu = tk.Menu(settings_menu, tearoff=0)
+        preferences_menu.add_command(label='Keyboard Shortcuts')
+
+        # Settings  ->  Preferences  ->  Font Preferences
+        font_preferences = tk.Menu(preferences_menu, tearoff=0)
+        font_preferences.add_command(label='Font Size')
+        font_preferences.add_command(label='Font Style')
+
+        # ADD SUB-MENU CASCADES TO MENU OPTIONS
+        preferences_menu.add_cascade(label='Font Preferences', menu=font_preferences)
+        settings_menu.add_cascade(label='Preferences', menu=preferences_menu)
+
+        # HELP
+        help_menu = tk.Menu(menubar, tearoff=0)
+
+        help_menu.add_command(label='Welcome', command=self.goto_welcome_page)
+        help_menu.add_command(label='About')
+
+        # ADD ALL DROPDOWN BUTTONS TO THE MENUBAR
+        menubar.add_cascade(label='File', menu=file_menu)
+        menubar.add_cascade(label='View', menu=view_menu)
+        menubar.add_cascade(label='Settings', menu=settings_menu)
+        menubar.add_cascade(label='Help', menu=help_menu)
+
+        return menubar
+
+    def goto_main_page(self):
+        self.p1.show()
+
+    def goto_welcome_page(self):
+        self.p2.show()
+
+    def start_scan(self):
+        # Update the target host with IP address FROM THE TEXTBOX
+        self.target = self.p1.ip_entry_text.get()
+
+        self.p1.delete_data()
+        print("\nSCANNING...")
+        self.scan()
+        self.p1.update_table()
+
+    # Method to check if a port is open
+    def is_port_open(self, target, port):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+            sock.settimeout(3)  # Set timeout to 3 seconds max
+
+            try:
+                sock.connect((target, port))
+                return True  # if port is open
+            except:
+                return False  # if port is closed
+
     def scan(self):
-        self.fill_queue(self.port_list)
+        # Create Thread Pool
+        with ThreadPoolExecutor(len(self.port_list)) as executor:
+            result = executor.map(self.is_port_open, [self.target]*len(self.port_list), self.port_list)
 
-        for t in range(500):
-            thread = threading.Thread(target=self.worker)
-            self.thread_list.append(thread)
+            for port, is_open in zip(self.port_list, result):
+                # ADD PORT ENTRY TO 'data' variable
+                self.p1.add_data(
+                    self.target,
+                    port,
+                    is_open,
+                    self.get_port_name(port),
+                    self.get_port_description(port)
+                )
+                if is_open:
+                    print(f'Port {port} is open!')
 
-        for thread in self.thread_list:
-            thread.start()
+    def get_port_name(self, port):
+        return f'[PORT {port} NAME]'
 
-        for thread in self.thread_list:
-            thread.join()
-
-        print("\nOpen ports are:\n", self.open_ports)
-
-        # NOTE:  Implement all ports kept & added to the table (Open AND CLOSED) - not just Open ports
-
-        # GUI DISPLAY
-        for port in self.open_ports:
-            self.p1.result_data.append((
-                self.p1.ip_entry_text.get(),
-                port,
-                'Open',  # NOTE:  save closed ports, too - and differentiate Open vs. Closed
-                '[Name]',  # NOTE:  Create a list of which ports do what
-                '[Details]'  # and connect the corresponding port data
-            ))
-
-            # data.append(('192.168.0.1', '135', 'Open', 'epmap', 'dce endpoint resolution, location service, etc.'))
-
-        for x in self.p1.result_data:
-            self.p1.scan_results.insert('', tk.END, values=x)
-
-    # NOTE: Make a method to clear all saved ports in variables & etc. BEFORE SCANNING (for a FRESH scan!)
-    def clear_scan(self):
-        pass
-
-    def PortScanner(self, port):
-        try:
-            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.connect((self.target, port))
-
-            return True
-        except:
-            return False
-
-    def fill_queue(self, port_list):
-        for port in port_list:
-            self.queue.put(port)
-
-    def worker(self):
-        while not self.queue.empty():
-            port = self.queue.get()
-            if self.PortScanner(port):
-                print("\nScanning...")
-                print("Port {} is open!".format(port))
-
-                self.open_ports.append(port)
+    def get_port_description(self, port):
+        return f'[PORT {port} DESCRIPTION]'
