@@ -6,8 +6,6 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import font
 from tkinter.messagebox import showinfo
-from PIL import Image, ImageTk
-from src import img_dir
 
 import socket
 import threading
@@ -65,16 +63,17 @@ class Page1(Page):
         self.scan_results.heading('description', text='Description')
         self.scan_results.column('description', minwidth=0, width=300)
 
-        data = []
-        data.append(('192.168.0.1', '135', 'Open', 'epmap', 'dce endpoint resolution, location service, etc.'))
-        data.append(('192.168.0.1', '137', 'Closed', 'netbios-ns', 'netbios name service'))
-        data.append(('192.168.0.1', '138', 'Closed', 'netbios-dgm', 'netbios datagram service'))
-        data.append(('192.168.0.1', '139', 'Open', 'netbios-ssn', 'netbios session service'))
-        data.append(('192.168.0.1', '443', 'Closed', 'https', 'secure http (ssl), http protocol over tls/ssl'))
-        data.append(('192.168.0.1', '445', 'Open', 'microsoft-ds', 'microsoft-ds'))
+        self.data = []
 
-        for x in data:
-            self.scan_results.insert('', tk.END, values=x)
+        # self.data.append(('192.168.0.1', '135', 'Open', 'epmap', 'dce endpoint resolution, location service, etc.'))
+        # self.data.append(('192.168.0.1', '137', 'Closed', 'netbios-ns', 'netbios name service'))
+        # self.data.append(('192.168.0.1', '138', 'Closed', 'netbios-dgm', 'netbios datagram service'))
+        # self.data.append(('192.168.0.1', '139', 'Open', 'netbios-ssn', 'netbios session service'))
+        # self.data.append(('192.168.0.1', '443', 'Closed', 'https', 'secure http (ssl), http protocol over tls/ssl'))
+        # self.data.append(('192.168.0.1', '445', 'Open', 'microsoft-ds', 'microsoft-ds'))
+        #
+        # for x in self.data:
+        #     self.scan_results.insert('', tk.END, values=x)
 
         self.scan_results.bind('<<TreeviewSelect>>', self.item_selected)
 
