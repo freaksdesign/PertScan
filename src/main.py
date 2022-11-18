@@ -11,6 +11,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import font
 from tkinter.messagebox import showinfo
+from PIL import ImageTk, Image
 
 import socket
 import queue
@@ -180,6 +181,14 @@ class Page2(Page):
         # Content labels
         self.label1 = tk.Label(self.frame, text="About Us", font=self.medium_font)
         self.label2 = tk.Label(self.frame, text="We are...", font=self.small_font)
+        
+        # Create an object of tkinter ImageTk
+        #Using this to include the picture of Grab the Axe in the about screen.
+        img = ImageTk.PhotoImage(Image.open("Grab_the_axe.jpg"))
+
+        # Create a Label Widget to display the text or Image
+        Pic = Label(frame, image = img)
+        Pic.pack()
 
         # Place / position everything
         self.back_button.grid(row=0, column=0, padx=5, pady=5, sticky="w")
