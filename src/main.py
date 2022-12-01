@@ -7,6 +7,7 @@ __all__ = ['Page', 'Page1', 'Page2', 'MainView']
 
 # Import Libs
 import os
+import json
 import tkinter as tk
 from tkinter import ttk
 from tkinter import font
@@ -17,6 +18,8 @@ import socket
 import queue
 import threading
 from concurrent.futures import ThreadPoolExecutor
+
+from src import resource_dir
 
 
 # Default Page (structure that each Page inherits)
@@ -48,6 +51,7 @@ class Page1(Page):
              INITIALIZE VARIABLE(S)
             ======================== """
         self.data = []  # For storing scanned port data
+        self.ports_info = json.load(open(os.path.join(resource_dir, "ports.json")))
 
         """ ====================
              PAGE CONFIGURATION
@@ -97,6 +101,15 @@ class Page1(Page):
         scrollbar = ttk.Scrollbar(self, orient=tk.VERTICAL, command=self.scan_results.yview)
         self.scan_results.configure(yscrollcommand=scrollbar.set)
         scrollbar.grid(row=1, column=60, sticky="ns")
+
+        # Details frame
+        self.details = tk.Frame(self, background="white", highlightbackground="gray", highlightthickness=1)
+
+        self.details_title = tk.Label(self.details, text="Details", font=self.medium_font, background="white")
+        self.details_title.grid(row=0, column=0, padx=5, pady=5, sticky="n")
+
+        # Details FRAME
+        self.details.grid(row=2, column=0, columnspan=60, padx=(5, 0), pady=5, sticky="nsew")
 
         # REMOVE FOCUS FROM WIDGET BY CLICKING OFF
         self.bind_all("<1>", lambda event: event.widget.focus_set())
@@ -152,9 +165,16 @@ class Page1(Page):
             self.ip_entry.config(state='normal')
 
     def item_selected(self, event):
+        # record[n]
+        # 0=IP ; 1=port ; 2=Status ; 3=PortName ; 4=PortDescription
         for selected_item in self.scan_results.selection():
             item = self.scan_results.item(selected_item)
             record = item['values']
+            print(record[0])
+            print(record[1])
+            print(record[2])
+            print(record[3])
+            print(record[4])
             # show a message
             showinfo(title='Information', message=''.join(str(record)))
 
@@ -178,25 +198,82 @@ class Page2(Page):
         # LabelFrame
         self.frame = tk.LabelFrame(self, text="Thank you for using PortScanner!", font=self.title_font)
 
-        # Content labels
-        self.label1 = tk.Label(self.frame, text="About Us", font=self.medium_font)
-        self.label2 = tk.Label(self.frame, text="We are...", font=self.small_font)
-        
-        # Create an object of tkinter ImageTk
-        #Using this to include the picture of Grab the Axe in the about screen.
-        img = ImageTk.PhotoImage(Image.open("Grab_the_axe.jpg"))
-
-        # Create a Label Widget to display the text or Image
-        Pic = Label(frame, image = img)
-        Pic.pack()
+        self.label1 = tk.Label(self.frame, text="What is PortScanner?", font=self.medium_font)
 
         # Place / position everything
         self.back_button.grid(row=0, column=0, padx=5, pady=5, sticky="w")
+        self.frame.grid(row=1, column=0, padx=5, pady=20, sticky="ew")
 
-        self.frame.grid(row=1, column=0, padx=5, pady=5, sticky="ew")
+        # Label
+        self.label1.grid(row=0, column=0, padx=5, pady=(20, 10), sticky="n")
 
-        self.label1.grid(row=0, column=0, padx=2, pady=4)
-        self.label2.grid(row=1, column=0, padx=2, pady=4)
+
+# Page 3  -  About
+class Page3(Page):
+    def __init__(self, *args, **kwargs):
+        Page.__init__(self, *args, **kwargs)
+
+        """ ========================
+             INITIALIZE VARIABLE(S)
+            ======================== """
+        # Initialize logo image
+        # Create an object of tkinter ImageTk
+        # Using this to include the picture of Grab the Axe in the about screen.
+        logo_im = Image.open("GrabTheAxe.jpg")
+        logo_resize = logo_im.resize((150, 150))
+        self.logo_img = ImageTk.PhotoImage(logo_resize)
+
+        # Description text
+        description1 = "GRAB THE AXE provides both physical and cybersecurity consultations and assessments to help " \
+                       "you lock your digital doors. Our goal is to reduce your losses and harden your lines of " \
+                       "defense in both the real world and virtual, allowing you to focus on what you do best! By " \
+                       "leveraging the most modern and innovative approaches and utilizing client feedback, we can " \
+                       "pinpoint the focus areas that will offer you the greatest ROI."
+        description2 = "Our team is highly experienced with Physical and Cyber Security, Threat Intelligence, " \
+                       "Emergency Response, Vulnerability Management, Data Protection, Cloud and IoT Security. " \
+                       "We help you reduce RISK, LIABILITY, and the inevitable LOSS OF TRUST from your customers in " \
+                       "the face of any breach. Our experts are ready to help you protect what you care about!"
+
+        """ ====================
+             PAGE CONFIGURATION
+            ==================== """
+        # Back button
+        self.back_button = tk.Button(self, text="Back", font=self.small_font)
+
+        # LabelFrame
+        self.frame = tk.LabelFrame(self, text="Thank you for using PortScanner!", font=self.title_font)
+
+        # Left/Right Column FRAMES
+        self.frame_left = tk.Frame(self.frame)
+        self.frame_right = tk.Frame(self.frame)
+
+        # Content labels (LEFT)
+        self.label1 = tk.Label(self.frame_left, text="About Us", font=self.medium_font)
+        self.label2 = tk.Label(self.frame_left, text="We are...", font=self.small_font)
+
+        # Label widget to display the logo image (LEFT)
+        self.logo_label = tk.Label(self.frame_left, image=self.logo_img)
+
+        # Labels for description text (RIGHT)
+        self.label_description1 = tk.Label(self.frame_right, text=description1, font=self.small_font, wraplength=520)
+        self.label_description2 = tk.Label(self.frame_right, text=description2, font=self.small_font, wraplength=520)
+
+        # Place / position everything
+        self.back_button.grid(row=0, column=0, padx=5, pady=5, sticky="w")
+        self.frame.grid(row=1, column=0, padx=5, pady=20, sticky="ew")
+
+        # Labels (LEFT)
+        self.label1.grid(row=0, column=0, padx=2, pady=4, sticky="n")
+        self.label2.grid(row=1, column=0, padx=2, pady=4, sticky="n")
+        # Logo (LEFT)
+        self.logo_label.grid(row=2, column=0, padx=5, pady=5, sticky="n")
+        # Descriptions (RIGHT)
+        self.label_description1.grid(row=0, column=0, padx=5, pady=5, sticky="n")
+        self.label_description2.grid(row=1, column=0, padx=5, pady=5, sticky="n")
+
+        # LEFT/RIGHT COLUMN FRAMES
+        self.frame_left.grid(row=0, column=0, sticky="w")
+        self.frame_right.grid(row=0, column=1, sticky="e")
 
 
 # Main Controller class - primary window container - contains, controls & views Page(s)
@@ -227,6 +304,7 @@ class MainView(tk.Frame):
         # Create object for each Page
         self.p1 = Page1(self)
         self.p2 = Page2(self)
+        self.p3 = Page3(self)
 
         # Create container to hold all content  -  CONTAINS Page(s)
         container = tk.Frame(self)
@@ -235,10 +313,12 @@ class MainView(tk.Frame):
         # Place all pages (stacked atop one another) in the 'container' Frame
         self.p1.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
         self.p2.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
+        self.p3.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
 
         # BUTTON CONFIGURATION
         self.p1.scan_button.config(command=self.start_scan)
         self.p2.back_button.config(command=self.goto_main_page)
+        self.p3.back_button.config(command=self.goto_main_page)
 
         # Display the 1st page!
         self.p1.show()
@@ -281,7 +361,7 @@ class MainView(tk.Frame):
         help_menu = tk.Menu(menubar, tearoff=0)
 
         help_menu.add_command(label='Welcome', command=self.goto_welcome_page)
-        help_menu.add_command(label='About')
+        help_menu.add_command(label='About', command=self.goto_about_page)
 
         # ADD ALL DROPDOWN BUTTONS TO THE MENUBAR
         menubar.add_cascade(label='File', menu=file_menu)
@@ -298,6 +378,9 @@ class MainView(tk.Frame):
     # Method for lifting Page2 to the top of the stack
     def goto_welcome_page(self):
         self.p2.show()
+
+    def goto_about_page(self):
+        self.p3.show()
 
     # Method for starting the Port Scanning process
     def start_scan(self):
@@ -386,7 +469,29 @@ class ThreadedPortScanner(threading.Thread):
                     print(f'Port {port} is open!')
 
     def get_port_name(self, port):
-        return f'Port {port} NAME'  # placeholder
+        f = open(os.path.join(resource_dir, "ports.json"))
+        ports_info = json.load(f)
+
+        port_name = ports_info["data"][str(port)][0]
+
+        if port_name == "NA":
+            port_name = "N/A"
+
+        f.close()
+
+        return port_name
+        # return f'Port {port} NAME'  # placeholder
 
     def get_port_description(self, port):
-        return f'Port {port} DESCRIPTION'  # placeholder
+        f = open(os.path.join(resource_dir, "ports.json"))
+        ports_info = json.load(f)
+
+        port_description = ports_info["data"][str(port)][1]
+
+        if port_description == "NA":
+            port_description = "N/A"
+
+        f.close()
+
+        return port_description
+        # return f'Port {port} DESCRIPTION'  # placeholder
