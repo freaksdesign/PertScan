@@ -219,7 +219,7 @@ class Page3(Page):
         # Initialize logo image
         # Create an object of tkinter ImageTk
         # Using this to include the picture of Grab the Axe in the about screen.
-        logo_im = Image.open("GrabTheAxe.jpg")
+        logo_im = Image.open(os.path.join(resource_dir, "GrabTheAxe.jpg"))
         logo_resize = logo_im.resize((150, 150))
         self.logo_img = ImageTk.PhotoImage(logo_resize)
 
