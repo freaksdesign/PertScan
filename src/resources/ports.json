@@ -1,20 +1,20 @@
 {
   "data": {
     "0": [
-      "API's",
-      "In programming API's (non communication between hosts) requests an dynamic port"
+      "APIs",
+      "In programming APIs (not communication between hosts), requests a dynamic port."
     ],
     "1": [
       "TCPMUX",
-      "TCP Port Service Multiplexer meaning both TCP and UDP have been assigned"
+      "TCP Port Service Multiplexer"
     ],
     "2": [
       "Compressnet",
-      "Management Utility or manages data"
+      "Management Utility (manages data)"
     ],
     "3": [
       "Compressnet",
-      "Compression Process or compresses data"
+      "Compression Process (compresses data)"
     ],
     "4": [
       "NA",
@@ -30,7 +30,7 @@
     ],
     "7": [
       "Echo Protocol",
-      "testing and measuring roundtrip in IP address"
+      "Testing and measurement of round-trip times in IP networks."
     ],
     "8": [
       "NA",
@@ -38,15 +38,15 @@
     ],
     "9": [
       "Discard Protocol",
-      "Testing, debugging, measuring, and hostmanagement purposes."
+      "Testing, debugging, measuring, and host-management purposes."
     ],
     "10": [
-      "WakeonLAN",
+      "Wake-on-LAN",
       "Allows a computer to be turned on or awakened by a network message."
     ],
     "11": [
-      "Active Users",
-      "Determines who the active users are"
+      "Systat",
+      "Active Users; Retrieves a list of users logged into the system."
     ],
     "12": [
       "NA",
@@ -62,27 +62,27 @@
     ],
     "15": [
       "Previously Netstat Service",
-      "Displays Network connections for Transmission Control Protocol, routing tables, and number of network interface and network protocol stats."
+      "Displays network connections for Transmission Control Protocol (TCP), routing tables, and a number of network interface and network protocol statistics."
     ],
     "16": [
       "NA",
       "NA"
     ],
     "17": [
-      "Quote of the Day",
-      "Used by mainframe sysadmins to broadcast a daily quote on request by user."
+      "QOTD",
+      "Quote of the Day; Used by mainframe sysadmins to broadcast a daily quote on request by a user."
     ],
     "18": [
-      "Message Send Protocol",
-      "An application layer protocol used to send short message between nodes on network."
+      "MSP",
+      "Message Send Protocol; An application layer protocol used to send a short message between nodes on network."
     ],
     "19": [
       "CHARGEN",
-      "Testing & Debugging and measurement purposes"
+      "Character Generator Protocol; Testing, debugging and measurement purposes."
     ],
     "20": [
       "FTP",
-      "Standard comms protocol used for transfer of files from server to client on network."
+      "File Transfer Protocol; Standard communication protocol used for transferring files from server to client on a network."
     ],
     "21": [
       "FTP Control",
@@ -90,42 +90,42 @@
     ],
     "22": [
       "SSH",
-      "Network protocol for operating network services over unsecured network."
+      "Secure Shell; Network protocol for operating network services over an unsecured network."
     ],
     "23": [
-      "Telnet protocol",
-      "Provides to network a bideirectional interactive text oriented communication facility using a virtual terminal connection."
+      "Telnet Protocol",
+      "Provides a network a bidirectional interactive text-oriented communication facility using a virtual terminal connection."
     ],
     "24": [
       "NA",
       "NA"
     ],
     "25": [
-      "Simple Mail Transfer Protocol (SMTP)",
-      "used for email routing between mail servers"
+      "SMTP",
+      "Simple Mail Transfer Protocol; Used for email routing between mail servers."
     ],
     "26": [
       "NA",
       "NA"
     ],
     "27": [
-      "nswfe (NSW User System FE)",
-      "New User setup and data."
+      "nsw-fe",
+      "NSW User System FE; New user setup and data."
     ],
     "28": [
       "Palo Alto Networks' Panorama High Availability (HA)",
       "Palo Network Server"
     ],
     "29": [
-      "msgicp",
-      "Messaging cache."
+      "msg-icp",
+      "Messaging cache"
     ],
     "30": [
       "NA",
       "NA"
     ],
     "31": [
-      "msgauth",
+      "msg-auth",
       "Messaging authentication"
     ],
     "32": [
@@ -133,8 +133,8 @@
       "NA"
     ],
     "33": [
-      "dsp (Display Support Protocol)",
-      "Gives readablee data for Displaying the site."
+      "dsp",
+      "Display Support Protocol; Gives readable data for displaying the site."
     ],
     "34": [
       "NA",
@@ -150,15 +150,15 @@
     ],
     "37": [
       "Time Protocol",
-      "Provides machine readable date and time."
+      "Provides site-independent, machine readable date and time."
     ],
     "38": [
-      "RAP(Route Access Protocol)",
-      "Routing Protocol for info at all levels of the Internet."
+      "RAP",
+      "Route Access Protocol; A routing protocol for info at all levels of the Internet."
     ],
     "39": [
-      "RLP (Resource Location Protocol)",
-      "Performs variety of tasks for managing personal info such as DNS, DHCP and services of computers connecting and communicating over IP network."
+      "RLP",
+      "Resource Location Protocol; Determines the location of higher level services from hosts on a network."
     ],
     "40": [
       "NA",
@@ -170,22 +170,22 @@
     ],
     "42": [
       "Host Name Server Protocol",
-      "Obselete nework protocol used in translating host name to Internet address."
+      "Obselete nework protocol used in translating a host name to an Internet address."
     ],
     "43": [
       "WHOIS protocol",
-      "Protocol used for database that store registered users of an internet resource such as domain name, IP address block or autonomous system, but also used for other info."
+      "A query and response protocol that used for querying databases that store users of an Internet resource (among other information)."
     ],
     "44": [
-      "mpmflags",
-      "Alert Protocol"
+      "mpm-flags",
+      "MPM FLAGS; Alert Protocol"
     ],
     "45": [
       "mpm",
       "Message Processing Module"
     ],
     "46": [
-      "mpmsnd",
+      "mpm-snd",
       "Sending part of Module"
     ],
     "47": [
@@ -194,35 +194,35 @@
     ],
     "48": [
       "auditd",
-      "Service that logs events on Linux system."
+      "Digital Audit Daemon; Service that logs events on Linux system."
     ],
     "49": [
-      "TACACS Login Host protocol",
-      "Protocols handling remote authentication and related servecs for network access through central server."
+      "TACACS Login Host Protocol",
+      "A family of related protocols handling remote authentication and related services for network access control through a centralized server."
     ],
     "50": [
-      "remailck",
+      "re-mail-ck",
       "Remote Mail Checking Protocol"
     ],
     "51": [
       "NA",
-      "NA"
+      "[Removed] Historically used for Interface Message Processor logical address management."
     ],
     "52": [
       "XNS time protocol",
-      "Syncs time with other Xerox Network systems/ networks."
+      "Xerox Network Systems Time Protocol; Syncs time with other Xerox Network systems/networks."
     ],
     "53": [
-      "DNS (Domain name system)",
-      "Naming system used to identify computers reachable through Internet or Internet Protocol Networks."
+      "DNS",
+      "Domain Name System; Naming system used to identify computers/services reachable through Internet or Internet Protocol Networks."
     ],
     "54": [
       "XNS Clearinghouse",
-      "Maps to the OSI presentation layer."
+      "Xerox Network Systems Name Server; Maps to the OSI presentation layer."
     ],
     "55": [
-      "isigl",
-      "ISI Graphics Langauage."
+      "isi-gl",
+      "ISI Graphics Language"
     ],
     "56": [
       "XNS Authentication Protocol",
@@ -233,7 +233,7 @@
       "NA"
     ],
     "58": [
-      "XNS mail",
+      "XNS Mail",
       "Email Server meant to work on SPP instead of TCP/IP."
     ],
     "59": [
@@ -246,43 +246,43 @@
     ],
     "61": [
       "NA",
-      "NA"
+      "[Removed] Historically assigned to the NIFTP-Based Mail protocol."
     ],
     "62": [
       "ACAS",
-      "Software set of info security tools used for vulnerability scanning and risk assessment by agencies of US department of Defense."
+      "ACA Services; Software set of info security tools used for vulnerability scanning and risk assessment by agencies of US Department of Defense."
     ],
     "63": [
       "whoispp",
-      "Figures out who the User is."
+      "whois++; Identifies who the User is."
     ],
     "64": [
       "Covia",
-      "Communications Integrator"
+      "Communications Integrator (CI)"
     ],
     "65": [
-      "Tacasds",
-      "A Database Service."
+      "tacacs-ds",
+      "TACACS Database Service"
     ],
     "66": [
       "SQLnet",
-      "Oracle's networking software that allows remote data access between programs and Oracle Database."
+      "Oracle SQL*NET; Oracle's networking software that allows remote data access between programs and Oracle Databases."
     ],
     "67": [
       "Bootstrap Protocol Server",
-      "Network management protocol used on Internet Protocol networks for automatically assigning IP address and other comm parameters to devices connected to network using clientserver architecture."
+      "Network management protocol used in Internet Protocol networks to automatically assign an IP address to network devices from a configuration server."
     ],
     "68": [
       "Bootstrap Protocol Client",
-      "Internet Protocol that lets network user automatically be configured to recieve an IP address and have an OS booted without user involvement."
+      "Internet Protocol that lets a network user automatically be configured to receive an IP address and boot an OS without user involvement."
     ],
     "69": [
       "TFTP",
-      "Simple lockstep File Transfer Protocol which allows client to get file from/put file onto remote host."
+      "Trivial File Transfer Protocol; Simple lockstep File Transfer Protocol which allows a client to get a file from/put a file onto the remote host."
     ],
     "70": [
-      "Gohper Protocol",
-      "Communication protocol for distributing, searching and retrieving documents in Internet Prototocol Networks."
+      "Gopher Protocol",
+      "Communication protocol for distributing, searching and retrieving documents in Internet Protocol Networks."
     ],
     "71": [
       "NETRJS Protocol",
@@ -318,35 +318,35 @@
     ],
     "79": [
       "Finger protocol",
-      "Simple network protocols for exchange of humanoriented status and user info."
+      "Simple network protocols for the exchange of human-oriented status and user information."
     ],
     "80": [
       "HTTP",
-      "Application layer protocol in Internet protocol for distributed, collab, hypermedia info systems."
+      "Hypertext Transfer Protocol; Application layer protocol in the Internet protocol suite model for distributed, collaborative, hypermedia information systems."
     ],
     "81": [
-      "TorPark onion Routing",
-      "Anonymous communication over computer network."
+      "TorPark Onion Routing",
+      "Anonymous communication over a computer network."
     ],
     "82": [
       "Xfer utility",
-      "Command line Tool that acts as either client or server for purposes of transferring data from more thatn one conmputer to central computer."
+      "Commandline Tool that acts as either client or server for purposes of transferring data from more than one computer to a central computer."
     ],
     "83": [
-      "MITMLDEV",
-      "UNKOWN"
+      "mit-ml-dev",
+      "MIT ML Device"
     ],
     "84": [
-      "CTF(Common Trace Faciltiy)",
-      "Path mapper for secure connection."
+      "CTF",
+      "Common Trace Facility; Path mapper for secure connection."
     ],
     "85": [
-      "MITMLDEV(MIT ML Device)",
-      "Specific Device for network connection."
+      "mit-ml-dev",
+      "MIT ML Device; Specific Device for network connection."
     ],
     "86": [
-      "mfcobol (Micro Focus Cobol)",
-      "IDE for testing and desgining virtual and cloud platforms."
+      "mfcobol",
+      "Micro Focus Cobol; IDE for testing and desgining virtual and cloud platforms."
     ],
     "87": [
       "NA",
@@ -354,51 +354,51 @@
     ],
     "88": [
       "Kerberos authentication system",
-      "Protocol to identify user and makes sure correct user."
+      "A protocol that works on the basis of tickets to allow nodes communicating over a non-secure network to prove their identity to one another securely."
     ],
     "89": [
-      "sumittg (SU/MIT Telnet Gateway)",
-      "transmission Protocol for allowing people telnet between nets running different protocols."
+      "su-mit-tg",
+      "SU/MIT Telnet Gateway; Transmission Protocol for allowing people telnet between nets running different protocols."
     ],
     "90": [
-      "dnsix (DNSIX Security Attribute Token Map)",
-      "Collection of security requirements for networking defined by US Defence Intelligence Agency."
+      "dnsix",
+      "DNSIX Security Attribute Token Map; Collection of security requirements for networking defined by US Defence Intelligence Agencies."
     ],
     "91": [
-      "mitdov (MIT Dover Spooler)",
-      "A printer protocol."
+      "mit-dov",
+      "MIT Dover Spooler; A printer protocol."
     ],
     "92": [
-      "npp (Network Printing Protocol)",
-      "Transport protocol for printer networks."
+      "npp",
+      "Network Printing Protocol; Transport protocol for printer networks."
     ],
     "93": [
-      "dcp (Device Control Protocol)",
-      "Application protocol optimized for integration, monitoring and control of devices on network."
+      "dcp",
+      "Device Control Protocol; Application protocol optimized for integration, monitoring and control of devices on a network."
     ],
     "94": [
-      "objcall (Tivoli Object Dispatcher)",
-      "Communication protocol that listens and requests for the port to be destination."
+      "objcall",
+      "Tivoli Object Dispatcher; Communication protocol that listens and requests for the port to be destination."
     ],
     "95": [
       "SUPDUP",
-      "terminal independent remote login."
+      "Terminal-independent remote login."
     ],
     "96": [
       "dixie (DIXIE Protocol Specification)",
       "Obsolete protocol for accessing X 500 directory services."
     ],
     "97": [
-      "swiftrvf (Swift Remote Virtual File Protocol)",
-      "Computer programs to access file sharing for remote access."
+      "swift-rvf",
+      "Swift Remote Virtual File Protocol; Computer programs to access file sharing for remote access."
     ],
     "98": [
-      "tacnews (TAC News)",
-      "A news server for news worthy articles."
+      "tacnews",
+      "TAC News; A news server for news worthy articles."
     ],
     "99": [
-      "metagram (Metagram Relay)",
-      "A secure communications Protocol for instant messaging."
+      "metagram",
+      "Metagram Relay; A secure communications Protocol for instant messaging."
     ],
     "100": [
       "NA",
@@ -406,19 +406,19 @@
     ],
     "101": [
       "NIC host name",
-      "Label assigned to device connected to computer network thats to identify device in various forms of elctronic communication like the World wide Web."
+      "Label assigned to a device connected to a computer network for identifying the device in various forms of electronic communication (like the World Wide Web)."
     ],
     "102": [
-      "ISO Transport Service Access Point (TSAP)",
-      "An identifying label for network endpoints used in Open Systems Interconnection networking."
+      "TSAP",
+      "ISO Transport Service Access Point; An identifying label for network endpoints used in Open Systems Interconnection networking."
     ],
     "103": [
       "NA",
       "NA"
     ],
     "104": [
-      "Digital Imaging and Communications in Medicine (DICOM)",
-      "Standard for communication and management of medical imaging info and related data."
+      "DICOM",
+      "Digital Imaging and Communications in Medicine; Standard for communication and management of medical imaging information and related data."
     ],
     "105": [
       "CCSO Nameserver",
@@ -426,43 +426,43 @@
     ],
     "106": [
       "macOS Server",
-      "Password Server for discontinued Unixlike server operating systems"
+      "Password Server for discontinued Unix-like server operating systems."
     ],
     "107": [
-      "Remote User Telnet Service (RTelnet)",
-      "Provides similar function of telnet to those hosts which are behind firewall."
+      "RTelnet",
+      "Remote User Telnet Service; Provides a similar function of telnet to those hosts which are behind a firewall."
     ],
     "108": [
-      "IBM Systems Network Architecture (SNA)",
-      "Complete protocol stack for interconnecting computers and resources."
+      "SNA",
+      "IBM Systems Network Architecture; Complete protocol stack for interconnecting computers and resources."
     ],
     "109": [
-      "Post Office Protocol V2",
-      "Application layer internet standard protocol used by email clients to get email form server."
+      "POP2",
+      "Post Office Protocol v2; Application layer internet standard protocol used by email clients to get email from a server."
     ],
     "110": [
-      "Post Office Protocol V3",
-      "Newest Application layer internet standard protocol used by email clients to get email form server."
+      "POP3",
+      "Post Office Protocol v3; Newest Application layer internet standard protocol used by email clients to get email from a server."
     ],
     "111": [
-      "Open Network Computing Remote Procedure Call (ONC RPC)",
-      "Remote procedure call system."
+      "ONC RPC",
+      "Open Network Computing Remote Procedure Call system."
     ],
     "112": [
       "Ident",
-      "authentication service/identification protocol, Internet Protocol that identifies user of a particular TCP connection."
+      "Authentication service/identification protocol, Internet Protocol that identifies user of a particular TCP connection."
     ],
     "113": [
-      "Authentication Service (Auth)",
-      "Predecessor to identification protocol and used to determine user's identity."
+      "auth",
+      "Authentication Service; Predecessor to identification protocol and used to determine user's identity."
     ],
     "114": [
       "NA",
       "NA"
     ],
     "115": [
-      "SFTP (Simple file transfer Protocol)",
-      "Standard communication protocol used for transfer of files from server to client on computer network."
+      "SFTP",
+      "Simple File Transfer Protocol; Standard communication protocol used for transfer of files from server to client on a computer network."
     ],
     "116": [
       "NA",
@@ -470,15 +470,15 @@
     ],
     "117": [
       "UUCP Mapping Project",
-      "Computer programs and protocols allowing rmeote execution of commands and transfer of files, email between computers."
+      "A suite of computer programs and protocols allowing remote execution of commands and transfer of files, email, and netnews between computers."
     ],
     "118": [
-      "Structured Query Language (SQL) Services",
-      "Domain Specific language used in programming and designed for managing database management system."
+      "SQL",
+      "Structured Query Language Services; Domain Specific language used in programming and designed for managing database management system."
     ],
     "119": [
-      "Network News Transfer Protocol (NNTP)",
-      "Retrieval of newsgroup messages."
+      "NNTP",
+      "Network News Transfer Protocol; Retrieval of newsgroup messages."
     ],
     "120": [
       "NA",
@@ -493,20 +493,20 @@
       "NA"
     ],
     "123": [
-      "Network Time Protocol (NTP)",
-      "Networking protocol for clock syncs between computer systems over packetswitched, variablelatency data networks."
+      "NTP",
+      "Network Time Protocol; Networking protocol for clock syncs between computer systems over packet-switched, variable-latency data networks."
     ],
     "124": [
-      "NXEdit",
-      "An IDE for Unisys MCP software development"
+      "NA",
+      "NA"
     ],
     "125": [
       "NA",
       "NA"
     ],
     "126": [
-      "NA",
-      "NA"
+      "NXEdit",
+      "An IDE for Unisys MCP software development"
     ],
     "127": [
       "NA",
@@ -538,11 +538,11 @@
     ],
     "134": [
       "DCE endpoint resolution",
-      "Communication protocol to provid secure connection to a computer network using nodes."
+      "Communication protocol to provide a secure connection to a computer network using nodes."
     ],
     "135": [
       "DCE/RPC Locator service",
-      "Used to remotely manage services including DHCP server, DNS server and WINS"
+      "Microsoft EPMAP (End Point Mapper); Used to remotely manage services including DHCP server, DNS server and WINS."
     ],
     "136": [
       "NA",
@@ -554,7 +554,7 @@
     ],
     "138": [
       "NetBIOS Datagram Service",
-      "provides connectionless, unreliable transport for unicast, multicast, and broadcast messages."
+      "Provides connectionless, unreliable transport for unicast, multicast, and broadcast messages."
     ],
     "139": [
       "NetBIOS Session Service",
@@ -573,8 +573,8 @@
       "NA"
     ],
     "143": [
-      "Internet Message Access Protocol (IMAP)",
-      "Internet standard protocol used by email clients to retreive email from server over TCP/IP connection."
+      "IMAP",
+      "Internet Message Access Protocol; Internet standard protocol used by email clients to retrieve email from a server over TCP/IP connection."
     ],
     "144": [
       "NA",
@@ -606,15 +606,15 @@
     ],
     "151": [
       "HEMS",
-      "System of computeraided tools by operators of electric utility grids to monitor, control and optimized performance of transmission system."
+      "A system of computer-aided tools used by operators of electric utility grids to monitor, control and optimize the performance of the transmission system."
     ],
     "152": [
-      "Background File Transfer Program (BFTP)",
-      "Transfer Background files."
+      "BFTP",
+      "Background File Transfer Program; Transfer background files."
     ],
     "153": [
-      "Simple Gateway Monitoring Protocol (SGMP)",
-      "Protocol for remote inspection and alteration of gateway management info."
+      "SGMP",
+      "Simple Gateway Monitoring Protocol; Protocol for remote inspection and alteration of gateway management info."
     ],
     "154": [
       "NA",
@@ -625,7 +625,7 @@
       "NA"
     ],
     "156": [
-      "Structured Query Language (SQL) Service",
+      "SQL Service",
       "Manages data held in a relational database."
     ],
     "157": [
@@ -633,8 +633,8 @@
       "NA"
     ],
     "158": [
-      "Distributed Mail System Protocol (DMSP)",
-      "Transmission protocol for distributing email messages."
+      "DMSP",
+      "Distributed Mail System Protocol; Transmission protocol for distributing email messages."
     ],
     "159": [
       "NA",
@@ -645,12 +645,12 @@
       "NA"
     ],
     "161": [
-      "Simple Network Management Protocol (SNMP)",
-      "Internet Standard protocol for collecting and organizing info about managed devices on IP networks and modifying info to change device."
+      "SNMP",
+      "Simple Network Management Protocol; Protocol for collecting information about devices on IP networks and modifying it to change device."
     ],
     "162": [
-      "Simple Network Management Protocol Trap (SNMPTRAP)",
-      "Internet Standard protocol for collecting and organizing info about managed devices on IP networks and modifying info to change device."
+      "SNMPTRAP",
+      "Simple Network Management Protocol Trap; Protocol for collecting information about devices on IP networks and modifying it to change device."
     ],
     "163": [
       "NA",
@@ -678,11 +678,11 @@
     ],
     "169": [
       "SEND",
-      "Security extension for Neighbor Discovery Protocol which is basically a node mapper to find and link to available routers and maintain reachability info."
+      "Security extension for Neighbor Discovery Protocol (NDP), a node mapper to find and link to available routers and maintain reachability info."
     ],
     "170": [
       "Network PostScript Print server",
-      "A Server to connect to Printers to client computers over network."
+      "A server for connecting Printers to client computers over a network."
     ],
     "171": [
       "NA",
@@ -709,20 +709,20 @@
       "NA"
     ],
     "177": [
-      "X Display Manager Control Protocol (XDMCP)",
-      "Used for remote logins to X Display Manager server."
+      "XDMCP",
+      "X Display Manager Control Protocol; Used for remote logins to the X Display Manager server."
     ],
     "178": [
       "NA",
       "NA"
     ],
     "179": [
-      "Border Gateway Protocol (BGP)",
-      "Used to exchange routing and reachability info among autonomous systems on the Internet."
+      "BGP",
+      "Border Gateway Protocol; Used to exchange routing and reachability information among autonomous systems on the Internet."
     ],
     "180": [
       "ris",
-      "Microsoftsupplied server allows PXE BIOSenabled computers to remotely execute boot environment variables."
+      "Microsoft-supplied server that allows PXE BIOS-enabled computers to remotely execute boot environment variables."
     ],
     "181": [
       "NA",
@@ -777,8 +777,8 @@
       "NA"
     ],
     "194": [
-      "Internet Relay Chat (IRC)",
-      "Textbased chat system for group communication in discussion forums and allows oneonone communications via private messages basically Direct messaging."
+      "IRC",
+      "Internet Relay Chat; Text-based chat system for group communication in discussion forums and allows one-on-one communications via private messaging."
     ],
     "195": [
       "NA",
@@ -797,16 +797,16 @@
       "NA"
     ],
     "199": [
-      "SNMP unix multiplexer (SMUX)",
-      "A more secure way for data transmission prototol than SNMP."
+      "SMUX",
+      "SNMP Unix Multiplexer; A more secure protocol of data transmission than SNMP."
     ],
     "200": [
       "NA",
       "NA"
     ],
     "201": [
-      "AppleTalk Routing Maintenance",
-      "The routing maintainence server for discontinued appleTalk"
+      "AppleTalk",
+      "The routing maintenance server for the discontinued AppleTalk."
     ],
     "202": [
       "NA",
@@ -837,12 +837,12 @@
       "NA"
     ],
     "209": [
-      "Quick Mail transfer Protocol",
-      "An email transmission protocol to have better performance than Simple Mail Transfer Protocol."
+      "QMTP",
+      "Quick Mail Transfer Protocol; An email transmission protocol with better performance than Simple Mail Transfer Protocol (SMTP)."
     ],
     "210": [
-      "ANSI Z",
-      "Application layer communicatiions protocol for searching and retrieving info from database over TCP/IP computer network maintained by Library of Congress."
+      "ANSI Z39.50",
+      "Application layer communications protocol for searching and retrieving info from a database over TCP/IP computer network maintained by Library of Congress."
     ],
     "211": [
       "NA",
@@ -853,8 +853,8 @@
       "NA"
     ],
     "213": [
-      "Internetwork Packet Exchange (IPX)",
-      "Network layer protocol which has ability to act as a transport layer protocol."
+      "IPX",
+      "Internetwork Packet Exchange; Network layer protocol with the ability to act as a transport layer protocol."
     ],
     "214": [
       "NA",
@@ -873,16 +873,16 @@
       "NA"
     ],
     "218": [
-      "Message posting Protocol (MPP)",
-      "The interface between message posting server and the client."
+      "MPP",
+      "Message Posting Protocol; The interface between a message posting server and the client."
     ],
     "219": [
       "NA",
       "NA"
     ],
     "220": [
-      "Internet Message Access Protocol (IMAP)",
-      "Internet standard protocol used by email clients to retrieve email messages from mail server over TCP/IP connection."
+      "IMAP v3",
+      "Internet Message Access Protocol; Internet standard protocol used by email clients to retrieve email messages from a mail server over TCP/IP connection."
     ],
     "221": [
       "NA",
@@ -1037,8 +1037,8 @@
       "NA"
     ],
     "259": [
-      "Efficient Short Remote Operations (ESRO)",
-      "Similar to other Remote Procedure Call Services."
+      "ESRO",
+      "Efficient Short Remote Operations; Similar to other Remote Procedure Call Services."
     ],
     "260": [
       "NA",
@@ -1049,7 +1049,7 @@
       "NA"
     ],
     "262": [
-      "Arcisdms",
+      "arcisdms",
       "An OS identification server."
     ],
     "263": [
@@ -1057,8 +1057,8 @@
       "NA"
     ],
     "264": [
-      "Border Gateway Multicast Protocol (BGMP)",
-      "A true interdomain multicast routing protocol."
+      "BGMP",
+      "Border Gateway Multicast Protocol; A true inter-domain multicast routing protocol."
     ],
     "265": [
       "NA",
@@ -1121,8 +1121,8 @@
       "NA"
     ],
     "280": [
-      "httpmgmt",
-      "Managment server for HTTP"
+      "http-mgmt",
+      "Management server for HTTP."
     ],
     "281": [
       "NA",
@@ -1202,7 +1202,7 @@
     ],
     "300": [
       "ThinLinc Web Access",
-      "Crossplatform remote desktop Server using web."
+      "Cross-platform Remote Desktop Server using web."
     ],
     "301": [
       "NA",
@@ -1250,7 +1250,7 @@
     ],
     "312": [
       "macOS Xsan Administration",
-      "Enables multiple Mac desktop and Xserve systems access shared block storage over fibre channel network."
+      "Enables multiple Mac desktop and Xserver systems to access shared block storage over a fibre channel network."
     ],
     "313": [
       "NA",
@@ -1273,16 +1273,16 @@
       "NA"
     ],
     "318": [
-      "PKIX Time Stamp Protocol (TSP)",
-      "Cryptographic protocol for certifying timestamps using X 509 Certificates and public key infrastructure."
+      "TSP",
+      "PKIX Time Stamp Protocol; Cryptographic protocol for certifying timestamps using X 509 Certificates and public key infrastructure."
     ],
     "319": [
-      "Precision Time Protocol event (PTP)",
-      "Protocol used to sync clocks throughout computer network."
+      "PTP event",
+      "Precision Time Protocol event messages; Protocol used to sync clocks throughout a computer network."
     ],
     "320": [
-      "Precision Time Protocol general (PTP)",
-      "Protocol used to sync clocks throughout computer network."
+      "PTP general",
+      "Precision Time Protocol general messages; Protocol used to sync clocks throughout a computer network."
     ],
     "321": [
       "NA",
@@ -1401,12 +1401,12 @@
       "NA"
     ],
     "350": [
-      "Mapping of Airline Traffic over Internet Protocol (MATIP) type A",
-      "Communication protocol for airline reservation, ticketing, and messaging traffic."
+      "MATIP type A",
+      "Mapping of Airline Traffic over Internet Protocol type A; Communication protocol for airline reservation, ticketing, and messaging traffic."
     ],
     "351": [
-      "Mapping of Airline Traffic over Internet Protocol (MATIP) type B",
-      "Communication protocol for airline reservation, ticketing, and messaging traffic."
+      "MATIP type B",
+      "Mapping of Airline Traffic over Internet Protocol type B; Communication protocol for airline reservation, ticketing, and messaging traffic."
     ],
     "352": [
       "NA",
@@ -1425,8 +1425,8 @@
       "NA"
     ],
     "356": [
-      "cloantonet1",
-      "Server for hosting,email, and telecommunications services."
+      "cloanto-net-1",
+      "Server for hosting, email and telecommunications services (used by Cloanto Amiga Explorer and VMs)."
     ],
     "357": [
       "NA",
@@ -1465,8 +1465,8 @@
       "NA"
     ],
     "366": [
-      "OnDemand Mail Relay (ODMR)",
-      "Allows email to be relayed to recipients after they have been authenticated."
+      "ODMR",
+      "OnDemand Mail Relay; Allows email to be relayed to recipients after they have been authenticated."
     ],
     "367": [
       "NA",
@@ -1482,11 +1482,11 @@
     ],
     "370": [
       "codaauth2",
-      "Code authentication server"
+      "Coda authentication server"
     ],
     "371": [
       "ClearCase albd",
-      "When a client program needs access to a service"
+      "For when a client program needs access to a service."
     ],
     "372": [
       "securecast1",
@@ -1506,7 +1506,7 @@
     ],
     "376": [
       "Amiga Envoy Network Inquiry Protocol",
-      "Makes sure that Network is safe and determines if public or private."
+      "Checks if a network is safe and determines if it is public or private."
     ],
     "377": [
       "NA",
@@ -1538,7 +1538,7 @@
     ],
     "384": [
       "A Remote Network Server System",
-      "Allows for remote access to server system"
+      "Allows for remote access to a server system."
     ],
     "385": [
       "NA",
@@ -1549,16 +1549,16 @@
       "NA"
     ],
     "387": [
-      "AURP (AppleTalk Updatebased Routing Protocol)",
-      "Routing Protocol for secure connections for Apple devices."
+      "AURP",
+      "AppleTalk Update-based Routing Protocol; Routing protocol for secure connections of Apple devices."
     ],
     "388": [
       "Unidata LDM",
-      "Programs for distribution of near realtime atmospheric earth data to researches and educatiors free of charge."
+      "Programs for distribution of near real-time atmospheric earth data to researchers and educators free of charge."
     ],
     "389": [
-      "Lightweight Directory Access Protocol (LDAP)",
-      "Application protocol for accessing and maintaining distributed directory info services ove Internet Protocol network."
+      "LDAP",
+      "Lightweight Directory Access Protocol; Protocol for accessing and maintaining distributed directory information services over an internet network."
     ],
     "390": [
       "NA",
@@ -1597,16 +1597,16 @@
       "NA"
     ],
     "399": [
-      "Digital Equipment Corporation DECnet+",
-      "Offers secure connections to other devices."
+      "DECnet+",
+      "Digital Equipment Corporation; Offers secure connections to other devices."
     ],
     "400": [
       "NA",
       "NA"
     ],
     "401": [
-      "Uninterruptible power supply (UPS)",
-      "Electrical apparatus that provides emergency power to load when input power source or main power fails."
+      "UPS",
+      "Uninterruptible Power Supply; Electrical apparatus that provides emergency power to load when input power source or main power fails."
     ],
     "402": [
       "NA",
@@ -1709,8 +1709,8 @@
       "NA"
     ],
     "427": [
-      "Service Location Protocol (SLP)",
-      "Service discovery protocol allows computers and other devices to find serves in local area network without prior configuration."
+      "SLP",
+      "Service Location Protocol; A discovery protocol that allows devices to find servers within a local area network, without prior configuration."
     ],
     "428": [
       "NA",
@@ -1734,11 +1734,11 @@
     ],
     "433": [
       "NNTP",
-      "App protocol used for transporting Usenet News articles between news servers and also allows users to read/post articles."
+      "An app protocol used for transporting Usenet News articles between news servers and allows users to read/post articles."
     ],
     "434": [
       "Mobile IP Agent",
-      "Standard communications protocol to allow mobile device users to move from one network to antoher while maintaining permanent IP address"
+      "Standard communications protocol to allow mobile device users to move from one network to another while maintaining a permanent IP address."
     ],
     "435": [
       "NA",
@@ -1773,20 +1773,20 @@
       "NA"
     ],
     "443": [
-      "Hypertext Transfer Protocol Secure (HTTPS)",
-      "Used for secure communication over a computer network and widely used on Internet."
+      "HTTPS",
+      "Hypertext Transfer Protocol Secure; Used for secure communication over a computer network, and widely used on the Internet."
     ],
     "444": [
-      "Simple Network Paging Protocol (SNPP)",
-      "Protocol that defines method by which pager can recieve messages over Internet."
+      "SNPP",
+      "Simple Network Paging Protocol; A protocol that defines the method by which a pager can receive messages over the Internet."
     ],
     "445": [
-      "MicrosoftDS (Directory Services) Active Directory",
-      "Directory service by micorsoft which is included in most Windows server operaating systems."
+      "MicrosoftDS Active Directory",
+      "Directory Services (DS) by Microsoft which is included in most Windows server operating systems."
     ],
     "446": [
-      "MicrosoftDS (Directory Services) SMB",
-      "Communication protocol to provide shared access to files and printers across nodes on a network of systems running IBM's."
+      "Microsoft-DS SMB",
+      "A communication protocol to provide shared access to files and printers across nodes on a network of systems running IBMs."
     ],
     "447": [
       "NA",
@@ -1858,19 +1858,19 @@
     ],
     "464": [
       "Kerberos Change/Set password",
-      "Changing and setting passoword for Kerberos"
+      "Changing and setting a password for Kerberos."
     ],
     "465": [
-      "SMTP over implicit SSL (obsolete)",
-      "An old method of securing SMPT."
+      "SMTP over implicit SSL",
+      "[Obsolete] An old method of securing SMPT."
     ],
     "466": [
       "URL Rendezvous Directory for Cisco SSM",
       "Database for URLs."
     ],
     "467": [
-      "Authenticated SMTP11] over TLS/SSL (SMTPS)",
-      "Method for securing the SMTP using transport layer security intened to provide authentication of comm partners."
+      "SMTPS",
+      "Authenticated SMTP over TLS/SSL; A method for securing the SMTP using transport layer security intended to provide authentication of comm partners."
     ],
     "468": [
       "NA",
@@ -1906,67 +1906,67 @@
     ],
     "476": [
       "Centro Software ERP ports",
-      "Ports for CentroSoftware.com which is Italian leader in development of management software for companies."
+      "Ports for CentroSoftware.com which is the Italian leader in development of management software for companies."
     ],
     "477": [
       "Centro Software ERP ports",
-      "Ports for CentroSoftware.com which is Italian leader in development of management software for companies."
+      "Ports for CentroSoftware.com which is the Italian leader in development of management software for companies."
     ],
     "478": [
       "Centro Software ERP ports",
-      "Ports for CentroSoftware.com which is Italian leader in development of management software for companies."
+      "Ports for CentroSoftware.com which is the Italian leader in development of management software for companies."
     ],
     "479": [
       "Centro Software ERP ports",
-      "Ports for CentroSoftware.com which is Italian leader in development of management software for companies."
+      "Ports for CentroSoftware.com which is the Italian leader in development of management software for companies."
     ],
     "480": [
       "Centro Software ERP ports",
-      "Ports for CentroSoftware.com which is Italian leader in development of management software for companies."
+      "Ports for CentroSoftware.com which is the Italian leader in development of management software for companies."
     ],
     "481": [
       "Centro Software ERP ports",
-      "Ports for CentroSoftware.com which is Italian leader in development of management software for companies."
+      "Ports for CentroSoftware.com which is the Italian leader in development of management software for companies."
     ],
     "482": [
       "Centro Software ERP ports",
-      "Ports for CentroSoftware.com which is Italian leader in development of management software for companies."
+      "Ports for CentroSoftware.com which is the Italian leader in development of management software for companies."
     ],
     "483": [
       "Centro Software ERP ports",
-      "Ports for CentroSoftware.com which is Italian leader in development of management software for companies."
+      "Ports for CentroSoftware.com which is the Italian leader in development of management software for companies."
     ],
     "484": [
       "Centro Software ERP ports",
-      "Ports for CentroSoftware.com which is Italian leader in development of management software for companies."
+      "Ports for CentroSoftware.com which is the Italian leader in development of management software for companies."
     ],
     "485": [
       "Centro Software ERP ports",
-      "Ports for CentroSoftware.com which is Italian leader in development of management software for companies."
+      "Ports for CentroSoftware.com which is the Italian leader in development of management software for companies."
     ],
     "486": [
       "Centro Software ERP ports",
-      "Ports for CentroSoftware.com which is Italian leader in development of management software for companies."
+      "Ports for CentroSoftware.com which is the Italian leader in development of management software for companies."
     ],
     "487": [
       "Centro Software ERP ports",
-      "Ports for CentroSoftware.com which is Italian leader in development of management software for companies."
+      "Ports for CentroSoftware.com which is the Italian leader in development of management software for companies."
     ],
     "488": [
       "Centro Software ERP ports",
-      "Ports for CentroSoftware.com which is Italian leader in development of management software for companies."
+      "Ports for CentroSoftware.com which is the Italian leader in development of management software for companies."
     ],
     "489": [
       "Centro Software ERP ports",
-      "Ports for CentroSoftware.com which is Italian leader in development of management software for companies."
+      "Ports for CentroSoftware.com which is the Italian leader in development of management software for companies."
     ],
     "490": [
       "Centro Software ERP ports",
-      "Ports for CentroSoftware.com which is Italian leader in development of management software for companies."
+      "Ports for CentroSoftware.com which is the Italian leader in development of management software for companies."
     ],
     "491": [
-      "GOGlobal remote access and application publishing software",
-      "Multiuser remote access app publishing software solution for Microsoft Windows."
+      "GO-Global remote access and application publishing software",
+      "Multi-user remote access application - publishing software solution for Microsoft Windows."
     ],
     "492": [
       "NA",
@@ -2001,8 +2001,8 @@
       "NA"
     ],
     "500": [
-      "Internet Security Association and Key Management Protocol (ISAKMP)",
-      "Provides framework for authentication and key exchange and ist designed to be key exchange independent."
+      "ISAKMP",
+      "Internet Security Association and Key Management Protocol; Provides a framework for authentication and (independent) key exchange."
     ],
     "501": [
       "NA",
@@ -2010,7 +2010,7 @@
     ],
     "502": [
       "Modbus Protocol",
-      "Data communications protocol originally published by modicon for its programmable logic controllers."
+      "Data communications protocol originally published by Modicon for its programmable logic controllers."
     ],
     "503": [
       "NA",
@@ -2018,7 +2018,7 @@
     ],
     "504": [
       "Citadel",
-      "Multiservice protocol for dedicated clients for Citadel groupware systems."
+      "Multiservice protocol for dedicated clients on Citadel groupware systems."
     ],
     "505": [
       "NA",
@@ -2041,28 +2041,28 @@
       "NA"
     ],
     "510": [
-      "FirstClass Protocol (FCP)",
-      "Guarenteed errorfree communications for all activities, not just file transfers."
+      "FCP",
+      "FirstClass Protocol; Guaranteed error-free communications for all activities (not just file transfers)."
     ],
     "511": [
       "Rexec",
-      "Remote Process Execution which allows user to execute on a remote host."
+      "Remote Process Execution that allows the user to execute on a remote host."
     ],
     "512": [
       "comsat",
-      "Used by mail system to notify users of new mail recieved."
+      "(together with biff) Used by mail systems to notify users of new mail received."
     ],
     "513": [
       "rlogin",
-      "Computer programs desgined to enable users of one UNIX system to log in or issue commands to another UNIX computer via TCP/IP computer network."
+      "Computer programs designed to enable users of one UNIX system to log in or issue commands to another UNIX computer via TCP/IP computer network."
     ],
     "514": [
-      "Syslog",
-      "Standard for message logging."
+      "Remote Shell",
+      "Used to execute non-interactive commands on a remote system (Remote Shell, rsh, remsh)."
     ],
     "515": [
-      "Line Printer Daemon (LPD)",
-      "Network printing protocol for submitting print jobs to a remote printer."
+      "LPD",
+      "Line Printer Daemon; Network printing protocol for submitting print jobs to a remote printer."
     ],
     "516": [
       "NA",
@@ -2074,19 +2074,19 @@
     ],
     "518": [
       "NTalk",
-      "Used to establish interactive 2way communication link between 2 UNIX users"
+      "Used to establish an interactive, 2-way communication link between 2 UNIX users"
     ],
     "519": [
       "NA",
       "NA"
     ],
     "520": [
-      "Routing Information Protocol (RIP)",
-      "One of the oldest of routing protocols that employ hop count as a roting metric and prevents roting loops by implemeting limit on number of hop."
+      "RIP",
+      "Routing Information Protocol; One of the oldest routing protocols that employs the hop count as a routing metric (also prevents routing loops)."
     ],
     "521": [
-      "Routing Information Protocol Next Generation (RIPng)",
-      "The newest of Routing protocols which employs the hop count as a routing metric."
+      "RIPng",
+      "Routing Information Protocol Next Generation; The newest of routing protocols which employs the hop count as a routing metric."
     ],
     "522": [
       "NA",
@@ -2097,12 +2097,12 @@
       "NA"
     ],
     "524": [
-      "NetWare Core Protocol (NCP)",
-      "Network protocol used for variety things like acess to primary NetWare server resources, Time Syncs, etc."
+      "NCP",
+      "NetWare Core Protocol; Network protocol used for a variety of functions, including access to primary NetWare server resources, Time Syncs, etc."
     ],
     "525": [
       "Timeserver",
-      "Server that reads the actual time from a reference clock and distributes this info to its clients using a computer network."
+      "A server that reads the actual time from a reference clock and distributes this information to its clients over a computer network."
     ],
     "526": [
       "NA",
@@ -2121,8 +2121,8 @@
       "NA"
     ],
     "530": [
-      "Remote Procedure call (RPC)",
-      "This is when a computer program causes a procedure (subroutine) to execute in a different address space, which is coded as if it were a normal (local) procedure call, without the programmer coding the details for the remote interaction."
+      "RPC",
+      "Remote Procedure Call; When a procedure is executed in an address space, as if it were a normal call, without being explicitly coded to handle the remote interaction."
     ],
     "531": [
       "NA",
@@ -2130,11 +2130,11 @@
     ],
     "532": [
       "netnews",
-      "News articles and servers"
+      "News articles and servers."
     ],
     "533": [
       "netwall",
-      "For emergency broadcasts or for government alerts."
+      "For emergency broadcasts and government alerts."
     ],
     "534": [
       "NA",
@@ -2161,24 +2161,24 @@
       "NA"
     ],
     "540": [
-      "UnixtoUnix Copy Protocol (UUCP)",
-      "Computer programs and protocols allowing remote execution of comands and transfer of files."
+      "UUCP",
+      "Unix-to-Unix Copy Protocol; Computer programs and protocols allowing remote execution of commands and transfer of files."
     ],
     "541": [
       "NA",
       "NA"
     ],
     "542": [
-      "Commerce",
-      "Exchange of goods and services among 2 or more parties which often requires their transportation from one place to another, especially on large scale."
+      "commerce",
+      "NA"
     ],
     "543": [
       "klogin",
-      "Kerberos login"
+      "Kerberos Login"
     ],
     "544": [
       "kshell",
-      "Kerberos Remote shell"
+      "Kerberos Remote Shell"
     ],
     "545": [
       "NA",
@@ -2186,23 +2186,23 @@
     ],
     "546": [
       "DHCPv6 client",
-      "Network protocol for configuring Internet Protocol version 6 hosts with IP addresses, IP prefixes, default route, local segment MTU, and othe config data required to operate in IPv6 networks."
+      "A network protocol to configure IPv6 hosts with IP addresses, IP prefixes, default route, local segment MTU, and other data required to operate in IPv6 networks."
     ],
     "547": [
       "DHCPv6 Server",
-      "Database of the configuriations that is necessary to operate in IPv6 networks"
+      "Database of the configurations which are necessary to operate in IPv6 networks."
     ],
     "548": [
-      "Apple Filing Protocol (AFP)",
-      "Network Protocol thats part of Apple File Service that offers file services for macOS and classic macOS."
+      "AFP",
+      "Apple Filing Protocol; A network protocol which is part of Apple File Service that offers file services for macOS and classic macOS."
     ],
     "549": [
       "NA",
       "NA"
     ],
     "550": [
-      "newrwho",
-      "Databasee to know who is logged into the device and who is operating the device."
+      "new-rwho, new-who",
+      "Database to know who is logged into the device and who is operating the device."
     ],
     "551": [
       "NA",
@@ -2217,16 +2217,16 @@
       "NA"
     ],
     "554": [
-      "Real Time Streaming Protocol (RTSP)",
-      "Application level network protocol designed for multiplexing and packetizing multimedia transport streams over suitable transport protocol."
+      "RTSP",
+      "Real Time Streaming Protocol; Application-level network protocol designed for multiplexing and packetizing multimedia transport streams."
     ],
     "555": [
       "NA",
       "NA"
     ],
     "556": [
-      "Remotefs",
-      "Unix operating system component for sharing resources like files, devices, and file system directories across networks similar to a distrubted file system."
+      "RFS",
+      "Remote File Sharing; Unix OS component for sharing resources (files, devices, and system directories) across networks, akin to a distributed file system."
     ],
     "557": [
       "NA",
@@ -2241,24 +2241,24 @@
       "NA"
     ],
     "560": [
-      "Rmonitor",
-      "Remote monitor or Remote access to a computer kinda like casting to a tv."
+      "rmonitor",
+      "Controls remote monitor (i.e. Remote access) to a computer."
     ],
     "561": [
-      "Monitor",
-      "A transmission Control Protocol used to connect securely to screen."
+      "monitor",
+      "A transmission control protocol used to connect securely to a screen."
     ],
     "562": [
       "NA",
       "NA"
     ],
     "563": [
-      "NNTP over TLS/SSL (NNTPS)",
-      "Application Protocol used for transporting usenet news articles between news servers and for reading/posting articles by end user client apps."
+      "NNTPS",
+      "NNTP over TLS/SSL; A protocol used for transporting usenet news articles between news servers and for reading/posting articles by end user client apps."
     ],
     "564": [
       "9P",
-      "Network protocol developed for plan 9 from Bell Labs as means of connecting the components of a plan 9 system."
+      "Plan 9; A network protocol developed for Plan 9 from Bell Labs as a means of connecting the components of a Plan 9 system."
     ],
     "565": [
       "NA",
@@ -2349,8 +2349,8 @@
       "NA"
     ],
     "587": [
-      "email message submission (SMTP)",
-      "Computer program that recieves electronic mail from mail user agent and cooperates with a mail transfer agent for delivery of mail."
+      "SMTP",
+      "Simple Mail Transfer Protocol; A protol that receives electronic mail from a mail user agent and cooperates with a mail transfer agent to deliver email."
     ],
     "588": [
       "NA",
@@ -2365,8 +2365,8 @@
       "NA"
     ],
     "591": [
-      "FileMaker 6.0",
-      "CrossPlatform relational database app from Claris International."
+      "FileMaker 6.0 Web Sharing",
+      "HTTP (Port 80) Alternative"
     ],
     "592": [
       "NA",
@@ -2374,7 +2374,7 @@
     ],
     "593": [
       "HTTP RPC Ep Map",
-      "Remote Procedure call over Hypertext Transfrer Protocol which basically makes it a bit more secure when calling other devices."
+      "A remote procedure call over HTTP, often used by Distributed Component Object Model services and Microsoft Exchange Server."
     ],
     "594": [
       "NA",
@@ -2406,7 +2406,7 @@
     ],
     "601": [
       "Reliable Syslog Service",
-      "Used for system logging and allows separtation of generating messages and storage of messages."
+      "Used for system logging and allows for the separation of generating messages and storage of messages."
     ],
     "602": [
       "NA",
@@ -2418,7 +2418,7 @@
     ],
     "604": [
       "TUNNEL profile",
-      "Protocol for BEEP peers to form an application layer tunnel kinda like a LAN system"
+      "A protocol for BEEP peers to form an application layer tunnel."
     ],
     "605": [
       "NA",
@@ -2493,16 +2493,16 @@
       "NA"
     ],
     "623": [
-      "ASF Remote Management and Control Protocol (ASFRMCP)",
-      "Remote monitoring and management and control of computer systems"
+      "ASFRMCP",
+      "ASF Remote Management and Control Protocol; Remote monitoring and management and control of computer systems."
     ],
     "624": [
       "NA",
       "NA"
     ],
     "625": [
-      "Open Directory Proxy (ODProxy)",
-      "LDAP app layer protocol gateway that offers enhanced directory access control, schema compatibility, and high availibitly using app layer load balancing and fail over."
+      "ODProxy",
+      "Open Directory Proxy; LDAP app layer protocol gateway that offers enhanced directory access control, schema compatibility, and high availability."
     ],
     "626": [
       "NA",
@@ -2521,12 +2521,12 @@
       "NA"
     ],
     "630": [
-      "Common Unix Printing System (CUPS)",
-      "Modular printing system for Unixlike computer operaing systems which allows computer to act as print server"
+      "CUPS",
+      "Common Unix Printing System; Modular printing system for Unix-like computer operating systems which allows a computer to act as print server."
     ],
     "631": [
-      "Internet Printing Protocol (IPP)",
-      "A specialized Internet protocol for comms between client devices and printers."
+      "IPP",
+      "Internet Printing Protocol; A specialized protocol for communication between client devices and printers."
     ],
     "632": [
       "NA",
@@ -2545,8 +2545,8 @@
       "A database to manage traffic in Internet Protocol Networks"
     ],
     "636": [
-      "Lightweight Directory Access Protocol over TLS/SSL (LDAPS)",
-      "Open, vendorneutral, industry standard application protocol for accessing and maintaining distrubuted directory info services over Internet Protocol network"
+      "LDAPS",
+      "Lightweight Directory Access Protocol over TLS/SSL; A protocol for accessing and maintaining distributed directory information services over a network."
     ],
     "637": [
       "NA",
@@ -2557,8 +2557,8 @@
       "NA"
     ],
     "639": [
-      "Multicast Source Discovery Protocol (MSDP)",
-      "A Protocol Independend Multicast (PIM) family multicast routing protocol basically routes data to speicified casting object."
+      "MSDP",
+      "Multicast Source Discovery Protocol; A Protocol Independent Multicast (PIM) family multicast routing protocol."
     ],
     "640": [
       "NA",
@@ -2566,7 +2566,7 @@
     ],
     "641": [
       "SupportSoft Nexus Remote Command",
-      "Proxy gateway connecting remote control traffic"
+      "Proxy gateway connecting remote control traffic."
     ],
     "642": [
       "NA",
@@ -2574,7 +2574,7 @@
     ],
     "643": [
       "SANity",
-      "Enables two hosts to establish a connection and exchange strams of data."
+      "Enables two hosts to establish a connection and exchange streams of data."
     ],
     "644": [
       "NA",
@@ -2585,16 +2585,16 @@
       "NA"
     ],
     "646": [
-      "Label Distribution Protocol (LDP)",
-      "Protocol which is used to build and maintain LSP databases that are used to foward traffic through MPLS networks."
+      "LDP",
+      "Label Distribution Protocol; A protocol used to build and maintain LSP databases for forwarding traffic through MPLS networks."
     ],
     "647": [
-      "DHCP Failover protocol",
-      "A network management Protoccol used on Internet Protocol networks for automatically assigning IP addresses and other communication parameters to devices connected to network using clientserver architecture."
+      "DHCP Failover",
+      "A network management protocol used on networks to automatically assign IP addresses to devices connected to the network using client-server architecture."
     ],
     "648": [
-      "Registry Registrar Protocol (RRP)",
-      "Registraiton database for devices manages connections to be secure"
+      "RRP",
+      "Registry Registrar Protocol; Registration database for devices (manages connections to be secure)."
     ],
     "649": [
       "NA",
@@ -2605,8 +2605,8 @@
       "NA"
     ],
     "651": [
-      "IEEEMMS",
-      "Drive management Protocol to manage data over secure connections."
+      "IEEE-MMS",
+      "Drive management protocol for managing data over secure connections."
     ],
     "652": [
       "NA",
@@ -2614,23 +2614,23 @@
     ],
     "653": [
       "SupportSoft Nexus Remote Command (data)",
-      "Proxy gateway connecting remote control traffic"
+      "A proxy gateway connecting remote control traffic."
     ],
     "654": [
-      "Media Management System (MMS)",
-      "Manages media stuff to transport over secure connections"
+      "MMS/MMP",
+      "Media Management System / Media Management Protocol"
     ],
     "655": [
       "Tinc VPN daemon",
-      "open source, selfrouting, mesh networking protocol and software implementation used for compressed and encrypted virtual private networks."
+      "An open source, self-routing, mesh networking protocol and software implementation used for compressed and encrypted virtual private networks."
     ],
     "656": [
       "NA",
       "NA"
     ],
     "657": [
-      "IBM RMC (Remote monitoring and Control) protocol",
-      "A hardware managment console to connect managed logical partitions to enable dynamic partition reconfiguration."
+      "IBM RMC",
+      "Remote Monitoring and Control Protocol; A hardware management console to connect managed logical partitions to enable dynamic partition reconfiguration."
     ],
     "658": [
       "NA",
@@ -2642,7 +2642,7 @@
     ],
     "660": [
       "macOS Server administration",
-      "Admin server to manage MacOS and Unix"
+      "Admin server to manage MacOS and Unix."
     ],
     "661": [
       "NA",
@@ -2666,7 +2666,7 @@
     ],
     "666": [
       "Doom",
-      "The port for doom the old first person shooter and no im not making this up, it is actually for it."
+      "The port for Doom; the first online first-person shooter."
     ],
     "667": [
       "NA",
@@ -2697,8 +2697,8 @@
       "NA"
     ],
     "674": [
-      "Application Configuration Access Protocol (ACAP)",
-      "Protocol for storing and scyncing general configurations and preference data."
+      "ACAP",
+      "Application Configuration Access Protocol; A protocol for storing and syncing general configurations and preference data."
     ],
     "675": [
       "NA",
@@ -2753,20 +2753,20 @@
       "NA"
     ],
     "688": [
-      "REALMRUSD (ApplianceWare Server Appliance Management Protocol)",
-      "Is the whole manager protocol that manages appliance connections."
+      "REALM-RUSD",
+      "ApplianceWare Server Appliance Management Protocol"
     ],
     "689": [
       "NA",
       "NA"
     ],
     "690": [
-      "Velneo Application Transfer Protocol (VATP)",
-      "Application layer protocol allows exchange of info between components of Velneo platform."
+      "VATP",
+      "Velneo Application Transfer Protocol; Application layer protocol allowing the exchange of information between components of the Velneo platform."
     ],
     "691": [
       "MS Exchange Routing",
-      "Routing info for mail server and calandering server developed by Microsoft."
+      "Routing information for mail server and calendar server developed by Microsoft."
     ],
     "692": [
       "NA",
@@ -2781,8 +2781,8 @@
       "High availability solution for Linux, FreeBSD, OpenBSD, Solaris and Mac OS x which promotes reliability, availability, and serviceability."
     ],
     "695": [
-      "IEEE Media Management System",
-      "Media management for transporting to other places securely."
+      "IEEE-MMS-SSL",
+      "IEEE Media Management System over SSL; Media management for transporting to other places securely."
     ],
     "696": [
       "NA",
@@ -2793,24 +2793,24 @@
       "NA"
     ],
     "698": [
-      "Optimized Link State Routing (OLSR)",
-      "Ip routing protocol optimized for mobile ad hoc networks and other wirless ad hoc networks."
+      "OLSR",
+      "Optimized Link State Routing; An IP routing protocol optimized for mobile ad hoc networks and other wireless ad hoc networks."
     ],
     "699": [
       "NA",
       "NA"
     ],
     "700": [
-      "Extensible Provisioning Protocol (EPP)",
-      "Protocol for communication between domain name registries and registrars."
+      "EPP",
+      "Extensible Provisioning Protocol; A protocol for communication between domain name registries and registrars."
     ],
     "701": [
-      "Link Management Protocol (LMP)",
-      "Protocol runs between pair of nodes and used to manage traffic engineering links."
+      "LMP",
+      "Link Management Protocol; A protocol that runs between a pair of nodes and is used to manage traffic engineering links."
     ],
     "702": [
-      "IRIS(Internet Registry Information Service)",
-      "Intended to sit atop registration databases."
+      "IRIS over BEEP",
+      "[Internet Registry Information Service] over [Blocks Extensible Exchange Protocol]; Intended to sit atop registration databases."
     ],
     "703": [
       "NA",
@@ -2825,8 +2825,8 @@
       "NA"
     ],
     "706": [
-      "Secure Internet Live Conferencing (SILC)",
-      "Protocol provides secure sync conferencing services over internet."
+      "SILC",
+      "Secure Internet Live Conferencing; A protocol that provides secure sync conferencing services over the internet."
     ],
     "707": [
       "NA",
@@ -2846,11 +2846,11 @@
     ],
     "711": [
       "Cisco Tag Distribution Protocol",
-      "Protocol which routers capable of Multiprotocol label switching exchange label mapping info."
+      "Protocol which routers capable of Multi-protocol label switching exchange label mapping info."
     ],
     "712": [
-      "Topology Broadcast based on ReversePath Forwarding routing protocol (TBRPF)",
-      "Linkstate routing protocol for wireless mesh networks."
+      "TBRPF",
+      "Topology Broadcast based on Reverse-Path Forwarding; A link-state routing protocol for wireless mesh networks."
     ],
     "713": [
       "NA",
@@ -2998,27 +2998,27 @@
     ],
     "749": [
       "Kerberos administration",
-      "Computer network authentication protocol that allow nodes to communicate over non secure network to prove identity."
+      "Computer network authentication protocol that allow nodes to communicate over a non-secure network to prove identity."
     ],
     "750": [
-      "kerberosiv",
-      "Kerberos version IV."
+      "kerberos-iv",
+      "Kerberos version IV"
     ],
     "751": [
       "kerberos_master",
-      "Kerberos authentication."
+      "Kerberos authentication"
     ],
     "752": [
       "passwd_server",
-      "Kerberos Password Server."
+      "Kerberos Password (kpasswd) Server"
     ],
     "753": [
-      "Reverse Routing Header (RRH)",
-      "Mechanism that allows to route packets in optimal path for nested mobile networks."
+      "RRH",
+      "Reverse Routing Header; A mechanism that allows to route packets in an optimal path for nested mobile networks."
     ],
     "754": [
-      "Tell send",
-      "Kerberos database to slave KDC's."
+      "tell send",
+      "Kerberos database to slave KDCs."
     ],
     "755": [
       "NA",
@@ -3129,8 +3129,8 @@
       "NA"
     ],
     "782": [
-      "Conserver serialconsole management server",
-      "Management system that allows remote access to system consoles and logs to a central host."
+      "Conserver serial-console management server",
+      "A management system that allows remote access to system consoles and logs to a central host."
     ],
     "783": [
       "SpamAssassin spamd daemon",
@@ -3201,7 +3201,7 @@
       "NA"
     ],
     "800": [
-      "mdbsdaemon",
+      "mdbs-daemon",
       "A data management database to collect data from background performance."
     ],
     "801": [
@@ -3210,7 +3210,7 @@
     ],
     "802": [
       "MODBUS/TCP security",
-      "Data communication protocol used as a means of connecting industrial electronic devices."
+      "A data communication protocol used as a means of connecting industrial electronic devices."
     ],
     "803": [
       "NA",
@@ -3317,12 +3317,12 @@
       "NA"
     ],
     "829": [
-      "Certificate Management Protocol",
-      "An internet protocol standardized by IETF used for getting X 509 digital certiificates."
+      "CMP",
+      "Certificate Management Protocol; An internet protocol standardized by IETF used for getting X.509 digital certificates."
     ],
     "830": [
       "NETCONF over SSH",
-      "Network management protocol developed and standardized by the IETF operates newtwork services securly."
+      "Network management protocol developed and standardized by the IETF (operates network services securely)."
     ],
     "831": [
       "NETCONF over BEEP",
@@ -3330,7 +3330,7 @@
     ],
     "832": [
       "NETCONF for SOAP over HTTPS",
-      "Messaging protocol for exchanging stuctured info in implementation of web services using HTTPS."
+      "Messaging protocol for exchanging structured information in the implementation of web services using HTTPS."
     ],
     "833": [
       "NETCONF for SOAP over BEEP",
@@ -3374,7 +3374,7 @@
     ],
     "843": [
       "Adobe Flash",
-      "A graphic software that is sadly out of commision now."
+      "NA"
     ],
     "844": [
       "NA",
@@ -3389,12 +3389,12 @@
       "NA"
     ],
     "847": [
-      "DHCP Failover protocol",
-      "Provides method for 2 DHCP servers to communicate with each other."
+      "DHCP Failover",
+      "Provides a method for 2 DHCP servers to communicate with each other."
     ],
     "848": [
-      "Group Domain Of Interpretation (GDOI) protocol",
-      "Cryptographic protocol for group key management."
+      "GDOI",
+      "Group Domain Of Interpretation; A cryptographic protocol for group key management."
     ],
     "849": [
       "NA",
@@ -3410,11 +3410,11 @@
     ],
     "852": [
       "DNS over TLS",
-      "Encrypts and wraps DNS queries and answers bia Transport Layer Security protocol."
+      "Encrypts and wraps DNS queries and answers via Transport Layer Security protocol."
     ],
     "853": [
       "DNS over QUIC",
-      "Encrypts and wraps DNS queries and answers bia Transport Layer Security protocol."
+      "Encrypts and wraps DNS queries and answers via Transport Layer Security protocol."
     ],
     "854": [
       "NA",
@@ -3442,15 +3442,15 @@
     ],
     "860": [
       "iSCSI",
-      "Internet Protocolbased storage networking standard for linking data sotrage facilities, basically extra security for data storage."
+      "Internet Small Computer Systems Interface; A protocol-based storage networking standard for linking data storage facilities."
     ],
     "861": [
       "OWAMP control",
-      "A one way active measurement protocol measuring oneway metrics between network devices."
+      "A one-way active measurement protocol that measures one-way metrics between network devices."
     ],
     "862": [
       "TWAMP control",
-      "A two way active measurement protocol measuring twoway or roundtrip metrics between network devices and faster than OWAMP."
+      "A two-way active measurement protocol that measures two-way (or roundtrip) metrics between network devices (it is faster than OWAMP)."
     ],
     "863": [
       "NA",
@@ -3549,12 +3549,12 @@
       "NA"
     ],
     "887": [
-      "CD DataBase (CDDB)",
-      "Database for software apps to look up audio CD info over the internet."
+      "CDDB",
+      "CD DataBase; A database protocol for software apps to look up audio CD information over the internet."
     ],
     "888": [
       "IBM Endpoint Manager Remote Control",
-      "Interface for several actions, basically a remote contorl for guidance, chat, file transfter, collab, and much more."
+      "Interface for several actions - a remote control, guidance, chat, file transfer, collaboration, and more."
     ],
     "889": [
       "NA",
@@ -3589,11 +3589,11 @@
       "NA"
     ],
     "897": [
-      "Brocade SMIS RPC",
+      "Brocade SMI-S RPC",
       "Storage Networking port."
     ],
     "898": [
-      "Brocade SMIS RPC SSL",
+      "Brocade SMI-S RPC SSL",
       "Storage Networking port."
     ],
     "899": [
@@ -3610,11 +3610,11 @@
     ],
     "902": [
       "VMware ESXi",
-      "VMware is an enterpriseclass hypervisor for deploying and serving Virtual computers."
+      "VMware is an enterprise-class hypervisor for deploying and serving Virtual computers."
     ],
     "903": [
       "VMware ESXi",
-      "VMware is an enterpriseclass hypervisor for deploying and serving Virtual computers."
+      "VMware is an enterprise-class hypervisor for deploying and serving Virtual computers."
     ],
     "904": [
       "NA",
@@ -3813,8 +3813,8 @@
       "NA"
     ],
     "953": [
-      "BIND remote name daemon control (RNDC)",
-      "Software for interacting with the Domain Name System (DNS)."
+      "BIND RNDC",
+      "BIND Remote Name Daemon Control; Software for interacting with the Domain Name System (DNS)."
     ],
     "954": [
       "NA",
@@ -3926,7 +3926,7 @@
     ],
     "981": [
       "Check Point VPN1 software",
-      "Remote HTTPS management for firewall Devices running."
+      "Remote HTTPS management for firewall devices running."
     ],
     "982": [
       "NA",
@@ -3950,39 +3950,39 @@
     ],
     "987": [
       "Microsoft Remote Web Workplace",
-      "A feature of Microsoft's Windows Small Business Server, Basically makes it so you can use office away from your own computer using a Server connection."
+      "A feature of Windows Small Business Server (allows access to a work office away from your own computer, using a server connection)."
     ],
     "988": [
-      "Lustre (file system) Protocol (data)",
-      "A parallel distributed file system used for largescale cluster computing."
+      "Lustre Protocol",
+      "A parallel distributed file system used for large-scale cluster computing."
     ],
     "989": [
-      "FTPS Protocol (data)",
-      "An extension for File Transfer and support Transport Layer Security."
+      "FTPS (data)",
+      "FTP over TLS/SSL; An extension for File Transfer and support Transport Layer Security."
     ],
     "990": [
-      "FTPS Protocol (control)",
-      "An extension for File Transfer and support Transport Layer Security. This would be the controller port."
+      "FTPS (control)",
+      "FTP over TLS/SSL; An extension for File Transfer and support Transport Layer Security (the controller port)."
     ],
     "991": [
-      "Netnews Administration System (NAS)",
-      "Framework to simplify administration and usage of network news on the Internet."
+      "NAS",
+      "Netnews Administration System; A framework to simplify administration and usage of network news on the Internet."
     ],
     "992": [
       "Telnet protocol over TLS/SSL",
-      "App protocol used on internet or local area network to provide bidirectional interactive textoriented comm facility using a Virtual Terminal connection."
+      "A protocol used on the internet or LAN to provide bidirectional, interactive text-oriented communication facility using a Virtual Terminal connection."
     ],
     "993": [
-      "Internet Message Access Protocol over TLS/SSL (IMAPS)",
-      "Protocol used by email clients to retrieve email messages form server over TCP."
+      "IMAPS",
+      "Internet Message Access Protocol over TLS/SSL; Protocol used by email clients to retrieve email messages from a server over TCP."
     ],
     "994": [
-      "Internet Relay Chat over TLS/SSL (IRCS)",
-      "Text based chat system for instant messaging."
+      "IRCS",
+      "Internet Relay Chat over TLS/SSL; Text-based chat system for instant messaging (not used in common practice)."
     ],
     "995": [
-      "Post Office Protocol 3 over TLS/SSL (POP3S)",
-      "Transport data port to transmit data over protected security."
+      "POP3S",
+      "Post Office Protocol 3 over TLS/SSL; A transport data port for transmitting data over protected security."
     ],
     "996": [
       "NA",
@@ -4041,7 +4041,7 @@
       "NA"
     ],
     "1010": [
-      "ThinLinc webbased administration interface",
+      "ThinLinc web-based administration interface",
       "ThinLinc's interface"
     ],
     "1011": [
@@ -4093,8 +4093,8 @@
       "NA"
     ],
     "1023": [
-      "z/OS Network File System (NFS)",
-      "File Network system to combine similar devices."
+      "z/OS NFS",
+      "z/OS Network File Network system to combine similar devices."
     ]
   }
 }

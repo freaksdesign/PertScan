@@ -84,7 +84,7 @@ class Page1(Page):
                    ('port_num', 'Port', 50),
                    ('port_status', 'Status', 80),
                    ('port_name', 'Port Name', 120),
-                   ('description', 'Description', 300))
+                   ('description', 'Description', 340))
 
         # Set table heading names, column sizing, & data filtering command
         for col in columns:
@@ -105,11 +105,36 @@ class Page1(Page):
         # Details frame
         self.details = tk.Frame(self, background="white", highlightbackground="gray", highlightthickness=1)
 
+        # Title
         self.details_title = tk.Label(self.details, text="Details", font=self.medium_font, background="white")
-        self.details_title.grid(row=0, column=0, padx=5, pady=5, sticky="n")
+        self.details_title.grid(row=0, column=0, padx=5, pady=1, sticky="n")
+        # Port Title ("Service: ")
+        self.details_port_title = tk.Label(self.details, text="Service:", font=self.small_font, background="white")
+        self.details_port_title.grid(row=1, column=0, padx=5, pady=1, sticky="w")
+        # Port
+        self.details_port = tk.Label(self.details, text="", font=self.small_font, background="white")
+        self.details_port.grid(row=1, column=1, padx=(0, 5), pady=1, sticky="w")
+        # Port Name Title ("Description: ")
+        self.details_desc_title = tk.Label(self.details, text="Description:", font=self.small_font, background="white")
+        self.details_desc_title.grid(row=2, column=0, padx=5, pady=1, sticky="w")
+        # Port Name
+        self.details_desc = tk.Label(self.details, text="", font=self.small_font, background="white")
+        self.details_desc.grid(row=2, column=1, padx=(0, 5), pady=1, sticky="w")
+        # Port Description Title ("Details: ")
+        self.details_extended_title = tk.Label(self.details, text="Details:", font=self.small_font,
+                                               height=2, anchor="n", background="white")
+        self.details_extended_title.grid(row=3, column=0, padx=5, pady=1, sticky="w")
+        # Port Description
+        self.details_extended = tk.Label(self.details, text="", font=self.small_font,
+                                         height=2, anchor="n", background="white", wraplength=580, justify="left")
+        self.details_extended.grid(row=3, column=1, padx=(0, 5), pady=1, sticky="w")
 
-        # Details FRAME
-        self.details.grid(row=2, column=0, columnspan=60, padx=(5, 0), pady=5, sticky="nsew")
+        # Port Status Label
+        self.details_status = tk.Label(self.details, text="", font=self.small_font, background="white", foreground="blue")
+        self.details_status.place(relx=0.95, y=20, anchor='ne')
+
+        # Place Details FRAME
+        self.details.grid(row=2, column=0, columnspan=60, padx=(5, 0), pady=(15, 5), sticky="nsew")
 
         # REMOVE FOCUS FROM WIDGET BY CLICKING OFF
         self.bind_all("<1>", lambda event: event.widget.focus_set())
@@ -175,8 +200,15 @@ class Page1(Page):
             print(record[2])
             print(record[3])
             print(record[4])
+
+            # Update details
+            self.details_port.config(text=record[1])
+            self.details_desc.config(text=record[3] if record[3] != "N/A" else "")
+            self.details_extended.config(text=record[4] if record[4] != "N/A" else "")
+            self.details_status.config(text=record[2].upper(), foreground="red" if record[2] == "Open" else "blue")
+
             # show a message
-            showinfo(title='Information', message=''.join(str(record)))
+            # showinfo(title='Information', message=''.join(str(record)))
 
 
 # Page 2  -  Welcome
@@ -387,8 +419,13 @@ class MainView(tk.Frame):
         # Update the target host with IP address FROM THE TEXTBOX
         self.target = self.p1.ip_entry_text.get()
 
+        # DISABLE SCAN BUTTON
+        self.p1.scan_button["state"] = "disabled"
+
         # Delete all data (to be replaced by updated scan data results)
         self.p1.delete_data()
+        # Clear the table (so it shows empty WHILE it scans!!!)
+        self.p1.update_table()
 
         # Initialize queue
         self.queue = queue.Queue()
@@ -405,6 +442,8 @@ class MainView(tk.Frame):
             msg = self.queue.get_nowait()  # Retrieving data from PortScanner thread queue
             self.p1.data = msg  # Updating the 'data' variable
             self.p1.update_table()  # Updating the result table
+            # RE-ENABLE SCAN BUTTON
+            self.p1.scan_button["state"] = "normal"
         except queue.Empty:  # Otherwise...
             # Re-check (run the method again) after another 100ms
             self.master.after(100, self.process_queue)
