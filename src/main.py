@@ -75,6 +75,17 @@ class Page1(Page):
                                                   command=self.toggle_default_ip)
         self.ip_default_checkbox.grid(row=0, column=3, padx=5, pady=5, sticky="w")
 
+        # Port Range label
+        self.port_range_label = tk.Label(self, text="Port Range:", font=self.small_font)
+        self.port_range_label.grid(row=0, column=4, padx=0, pady=5, sticky="w")
+        # Port Range text input
+        self.port_range_entry_text = tk.StringVar()
+        self.port_range_entry_text.set("1-1024")
+        self.port_range_entry = tk.Entry(self, textvariable=self.port_range_entry_text, font=self.small_font)
+        self.port_range_entry.grid(row=0, column=5, padx=0, pady=5, sticky="w")
+
+
+
         # Result table
         result_columns = ('ip', 'port_num', 'port_status', 'port_name', 'description')
         self.scan_results = ttk.Treeview(self, columns=result_columns, show='headings')
@@ -323,8 +334,9 @@ class MainView(tk.Frame):
         # Initialize host target
         self.target = self.machine_ip
 
-        # Initialize range of ports to scan
-        self.port_list = range(1024)
+
+
+
 
         # INITIALIZE the Menubar
         # NOTE: This is ADDED TO THE CONTAINER in 'app.py'
@@ -419,6 +431,16 @@ class MainView(tk.Frame):
         # Update the target host with IP address FROM THE TEXTBOX
         self.target = self.p1.ip_entry_text.get()
 
+        # Update the range of ports to scan with PORT RANGE FROM THE TEXTBOX
+        self.port_range = self.p1.port_range_entry_text.get()
+
+        # Spit range into start and end of range
+        self.port_range_start = int(self.port_range.split("-")[0])
+        self.port_range_end = int(self.port_range.split("-")[1])
+
+        # Initialize list of ports to scan using 'port list' input
+        self.port_list = range(self.port_range_start, self.port_range_end + 1)
+
         # DISABLE SCAN BUTTON
         self.p1.scan_button["state"] = "disabled"
 
@@ -511,7 +533,14 @@ class ThreadedPortScanner(threading.Thread):
         f = open(os.path.join(resource_dir, "ports.json"))
         ports_info = json.load(f)
 
-        port_name = ports_info["data"][str(port)][0]
+        #Create a check to catch keyerror if higher than avalible
+
+        try:
+            port_name = ports_info["data"][str(port)][0]
+        except KeyError:
+            port_name = "N/A"
+
+       
 
         if port_name == "NA":
             port_name = "N/A"
@@ -525,7 +554,10 @@ class ThreadedPortScanner(threading.Thread):
         f = open(os.path.join(resource_dir, "ports.json"))
         ports_info = json.load(f)
 
-        port_description = ports_info["data"][str(port)][1]
+        try:
+            port_description = ports_info["data"][str(port)][1]
+        except KeyError:
+            port_description = "N/A"
 
         if port_description == "NA":
             port_description = "N/A"
@@ -534,3 +566,4 @@ class ThreadedPortScanner(threading.Thread):
 
         return port_description
         # return f'Port {port} DESCRIPTION'  # placeholder
+
